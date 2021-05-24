@@ -19,6 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        tools:listitem="@layout/item_my_record"/>
+        tools:listitem="@layout/item_global_rank"/>
 
 </LinearLayout>

@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/home"
+        android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
         android:title="Home"
         app:cnb_iconColor="@color/regular_blue" />
     <item
-        android:id="@+id/leaderboard"
+        android:id="@+id/nav_leaderboard"
         android:icon="@drawable/ic_leaderboard"
         android:title="Leaderboard"
         app:cnb_iconColor="@color/regular_blue" />
     <item
-        android:id="@+id/contribute"
+        android:id="@+id/nav_contribute"
         android:icon="@drawable/ic_contribution"
         android:title="Contribution"
         app:cnb_iconColor="@color/regular_blue" />
     <item
-        android:id="@+id/profile"
+        android:id="@+id/nav_profile"
         android:icon="@drawable/ic_profile"
         android:title="Profile"
         app:cnb_iconColor="@color/regular_blue" />
