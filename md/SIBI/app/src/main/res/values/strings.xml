@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SIBI</string>
+    <string name="start_text">Apakah kamu siap belajar bahasa isyarat dengan cara yang menyenangkan?</string>
+    <string name="btn_signin">Masuk</string>
+    <string name="btn_signup">Daftar</string>
+    <string name="name">Nama</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="background">Background</string>
+</resources>
