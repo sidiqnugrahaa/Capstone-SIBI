@@ -1,11 +1,13 @@
 package com.sidiq.sibi.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sidiq.sibi.databinding.FragmentHomeBinding
+import com.sidiq.sibi.ui.learning.LearningActivity
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -22,7 +24,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-
+            binding.learnAlphabet.setOnClickListener(View.OnClickListener {
+                startActivity(Intent(context, LearningActivity::class.java))
+            })
         }
     }
 }
