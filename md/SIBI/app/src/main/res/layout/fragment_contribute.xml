@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/bg_mainmenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background"
+        android:contentDescription="@string/background"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Kontribusi"
+            android:textStyle="bold"
+            android:textColor="@color/dark_blue"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:text="Kontribusi anda akan membantu pengembangan aplikasi ini untuk terus menebarkan kebermanfaatan!"
+            android:textColor="@color/dark_blue"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="16dp"
+            android:background="@drawable/main_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="1. Ikuti gerakan pada video berikut!"
+                android:textColor="@color/dark_blue"
+                android:textSize="16sp"/>
+
+            <VideoView
+                android:id="@+id/contribut_video"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="180dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="16dp"
+            android:background="@drawable/main_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="2. Ambil video gerakanmu!"
+                android:textColor="@color/dark_blue"
+                android:textSize="16sp"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_sign_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"
+                android:background="@drawable/fill_round_orange"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="Ambil Video"
+                android:textAllCaps="false"
+                android:textColor="#FFF"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

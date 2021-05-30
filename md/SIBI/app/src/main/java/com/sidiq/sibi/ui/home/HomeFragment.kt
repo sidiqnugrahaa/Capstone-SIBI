@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sidiq.sibi.databinding.FragmentHomeBinding
+import com.sidiq.sibi.ui.game.GameActivity
 import com.sidiq.sibi.ui.learning.LearningActivity
+import com.sidiq.sibi.ui.practice.PracticeActivity
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -26,6 +28,12 @@ class HomeFragment : Fragment() {
         if (activity != null) {
             binding.learnAlphabet.setOnClickListener(View.OnClickListener {
                 startActivity(Intent(context, LearningActivity::class.java))
+            })
+            binding.practice.setOnClickListener(View.OnClickListener {
+                startActivity(Intent(context, PracticeActivity::class.java))
+            })
+            binding.game.setOnClickListener(View.OnClickListener {
+                startActivity(Intent(context, GameActivity::class.java))
             })
         }
     }

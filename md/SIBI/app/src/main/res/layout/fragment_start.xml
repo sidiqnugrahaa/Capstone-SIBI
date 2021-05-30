@@ -37,23 +37,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/btn_sign_in"
-        android:layout_width="148dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/fill_round_button"
-        android:padding="4dp"
-        android:text="@string/btn_signin"
+        android:background="@drawable/button_signin"
+        android:drawableStart="@drawable/ic_google"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="   Masuk dengan Google"
         android:textAllCaps="false"
-        android:textColor="#FFF"
-        android:textSize="16sp"
+        android:textColor="@color/dark_blue"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <Button
+    <!--<Button
         android:id="@+id/btn_sign_up"
         android:layout_width="148dp"
         android:layout_height="wrap_content"
@@ -67,6 +69,6 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

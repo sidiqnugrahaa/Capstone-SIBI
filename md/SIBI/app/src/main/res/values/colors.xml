@@ -12,5 +12,5 @@
     <color name="dark_blue">#0A4F82</color>
     <color name="regular_blue">#5666ED</color>
     <color name="low_red">#FAE7DF</color>
-    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#5666ED</color>
+    <color name="orange">#FFC44C</color>
 </resources>

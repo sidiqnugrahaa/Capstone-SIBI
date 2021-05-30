@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/bg_mainmenu"
@@ -68,8 +66,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
                 android:layout_marginBottom="8dp">
 
                 <TextView
@@ -93,57 +91,61 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp">
+                android:layout_marginEnd="24dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/learn_alphabet"
-                    android:layout_weight="1"
-                    android:layout_height="120dp"
                     android:layout_width="0dp"
+                    android:layout_height="100dp"
                     android:layout_marginEnd="10dp"
-                    android:padding="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/main_content"
                     android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/ic_alphabet"/>
+                        android:src="@drawable/ic_alphabet" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Alphabet"
+                        android:textColor="@color/dark_blue"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dark_blue"/>
+                        android:textStyle="bold" />
 
                     <!-- SOON Progress BAR-->
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="120dp"
                     android:layout_width="0dp"
+                    android:layout_height="100dp"
                     android:layout_marginStart="10dp"
-                    android:padding="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/main_content"
                     android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/ic_word"/>
+                        android:src="@drawable/ic_word" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Kata - Kata Dasar"
+                        android:textColor="@color/dark_blue"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dark_blue"/>
+                        android:textStyle="bold" />
                     <!-- SOON Progress BAR-->
                 </LinearLayout>
 
@@ -161,8 +163,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
                 android:layout_marginBottom="8dp">
 
                 <TextView
@@ -186,64 +188,68 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp">
+                android:layout_marginEnd="24dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="120dp"
+                    android:id="@+id/practice"
                     android:layout_width="0dp"
+                    android:layout_height="140dp"
                     android:layout_marginEnd="10dp"
-                    android:padding="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/main_content"
                     android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        android:layout_height="60dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/ic_alphabet"/>
+                        android:src="@drawable/ic_practice" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Alphabet"
+                        android:text="Berlatih"
+                        android:textColor="@color/dark_blue"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dark_blue"/>
+                        android:textStyle="bold" />
 
                     <!-- SOON Progress BAR-->
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_height="120dp"
+                    android:id="@+id/game"
                     android:layout_width="0dp"
+                    android:layout_height="140dp"
                     android:layout_marginStart="10dp"
-                    android:padding="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/main_content"
                     android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        android:layout_height="60dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/ic_word"/>
+                        android:src="@drawable/ic_game" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kata - Kata Dasar"
+                        android:text="Bermain"
+                        android:textColor="@color/dark_blue"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dark_blue"/>
+                        android:textStyle="bold" />
                     <!-- SOON Progress BAR-->
                 </LinearLayout>
 
             </LinearLayout>
 
-
         </LinearLayout>
-
 
     </LinearLayout>
 </FrameLayout>

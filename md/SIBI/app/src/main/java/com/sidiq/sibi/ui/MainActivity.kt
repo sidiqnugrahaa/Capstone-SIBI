@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.sidiq.sibi.R
 import com.sidiq.sibi.databinding.ActivityMainMenuBinding
+import com.sidiq.sibi.ui.contribute.ContributeFragment
 import com.sidiq.sibi.ui.home.HomeFragment
 import com.sidiq.sibi.ui.leaderboard.LeaderboardFragment
+import com.sidiq.sibi.ui.profile.ProfileFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +28,8 @@ class MainActivity : AppCompatActivity() {
             when (it) {
                 R.id.nav_home -> fragment = HomeFragment()
                 R.id.nav_leaderboard -> fragment = LeaderboardFragment()
+                R.id.nav_contribute -> fragment = ContributeFragment()
+                R.id.nav_profile -> fragment = ProfileFragment()
             }
             if (fragment != null) {
                 supportFragmentManager.beginTransaction()
