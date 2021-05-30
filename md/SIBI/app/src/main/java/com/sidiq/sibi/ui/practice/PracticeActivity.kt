@@ -1,5 +1,6 @@
 package com.sidiq.sibi.ui.practice
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sidiq.sibi.databinding.ActivityPracticeBinding
@@ -14,6 +15,9 @@ class PracticeActivity : AppCompatActivity() {
         binding = ActivityPracticeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnFinishPractice.setOnClickListener {
+            startActivity(Intent(this, PracticeCameraActivity::class.java))
+        }
     }
 
 }

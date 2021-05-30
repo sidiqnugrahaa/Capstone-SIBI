@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.sidiq.sibi.R
+import com.sidiq.sibi.SibiApp
 import com.sidiq.sibi.databinding.FragmentHomeBinding
 import com.sidiq.sibi.ui.game.GameActivity
 import com.sidiq.sibi.ui.learning.LearningActivity
@@ -27,6 +30,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initProfile()
+
         if (activity != null) {
             binding.learnAlphabet.setOnClickListener(View.OnClickListener {
                 startActivity(Intent(context, LearningActivity::class.java))
@@ -37,6 +42,19 @@ class HomeFragment : Fragment() {
             binding.game.setOnClickListener(View.OnClickListener {
                 startActivity(Intent(context, GameActivity::class.java))
             })
+        }
+    }
+
+    private fun initProfile(){
+        with(binding){
+            val profile = (activity?.application as SibiApp).authUser
+            helloUser.text = resources.getString(
+                R.string.hello_user, profile?.name?.split(" ")?.get(0)
+            )
+            Glide.with(requireView())
+                .load(profile?.imageUrl)
+                .into(profileImage)
+
         }
     }
 }

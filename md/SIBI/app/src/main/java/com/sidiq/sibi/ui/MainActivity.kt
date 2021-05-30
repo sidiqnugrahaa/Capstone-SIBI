@@ -3,6 +3,7 @@ package com.sidiq.sibi.ui
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.sidiq.sibi.R

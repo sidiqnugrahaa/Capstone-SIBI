@@ -13,6 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIBI">
+        <activity android:name=".ui.contribute.ContributeCameraActivity"></activity>
+        <activity android:name=".ui.game.GameCameraActivity" />
+        <activity android:name=".ui.practice.PracticeCameraActivity" />
+        <activity android:name=".ui.start.StartActivity" />
         <activity android:name=".ui.splashscreen.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
