@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.sidiq.sibi.R
 import com.sidiq.sibi.SibiApp
 import com.sidiq.sibi.databinding.FragmentHomeBinding
+import com.sidiq.sibi.domain.model.AuthUser.Companion.toDomain
+import com.sidiq.sibi.ui.FirebaseAuthViewModel
 import com.sidiq.sibi.ui.game.GameActivity
 import com.sidiq.sibi.ui.learning.LearningActivity
 import com.sidiq.sibi.ui.practice.PracticeActivity
@@ -18,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private val authViewModel : FirebaseAuthViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,7 +51,7 @@ class HomeFragment : Fragment() {
 
     private fun initProfile(){
         with(binding){
-            val profile = (activity?.application as SibiApp).authUser
+            val profile = authViewModel.checkUserLoggedIn()?.toDomain()
             helloUser.text = resources.getString(
                 R.string.hello_user, profile?.name?.split(" ")?.get(0)
             )

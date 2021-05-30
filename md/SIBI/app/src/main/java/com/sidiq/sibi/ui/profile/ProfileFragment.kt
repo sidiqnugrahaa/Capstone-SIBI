@@ -12,6 +12,7 @@ import com.sidiq.sibi.R
 import com.sidiq.sibi.SibiApp
 import com.sidiq.sibi.databinding.FragmentContributeBinding
 import com.sidiq.sibi.databinding.FragmentProfileBinding
+import com.sidiq.sibi.domain.model.AuthUser.Companion.toDomain
 import com.sidiq.sibi.ui.FirebaseAuthViewModel
 import com.sidiq.sibi.ui.start.StartActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,7 +42,7 @@ class ProfileFragment : Fragment() {
 
     private fun initProfile(){
         with(binding){
-            val profile = (activity?.application as SibiApp).authUser
+            val profile = authViewModel.checkUserLoggedIn()?.toDomain()
             tvName.text = profile?.name
             tvEmail.text = profile?.userId
             Glide.with(requireView())
