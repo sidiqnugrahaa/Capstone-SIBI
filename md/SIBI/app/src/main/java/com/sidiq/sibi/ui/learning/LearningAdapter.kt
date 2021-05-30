@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sidiq.sibi.databinding.ItemAlphabetBinding
-import com.sidiq.sibi.model.Alphabet
+import com.sidiq.sibi.domain.model.Alphabet
 
 class LearningAdapter( private val listAlphabet : ArrayList<Alphabet>) : RecyclerView.Adapter<LearningAdapter.ListViewHolder>() {
     private var onItemClickCallback: OnItemClickCallback? = null
