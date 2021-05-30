@@ -10,7 +10,9 @@ import com.sidiq.sibi.databinding.FragmentHomeBinding
 import com.sidiq.sibi.ui.game.GameActivity
 import com.sidiq.sibi.ui.learning.LearningActivity
 import com.sidiq.sibi.ui.practice.PracticeActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 

@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sidiq.sibi.databinding.FragmentLeaderboardBinding
 import com.sidiq.sibi.databinding.FragmentMyrecordBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RecordFragment  : Fragment() {
     private lateinit var binding: FragmentMyrecordBinding
 

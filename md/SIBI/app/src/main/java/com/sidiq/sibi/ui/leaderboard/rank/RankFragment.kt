@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sidiq.sibi.databinding.FragmentGlobalrankBinding
 import com.sidiq.sibi.databinding.FragmentMyrecordBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RankFragment  : Fragment() {
     private lateinit var binding: FragmentGlobalrankBinding
 

@@ -11,8 +11,10 @@ import com.sidiq.sibi.ui.contribute.ContributeFragment
 import com.sidiq.sibi.ui.home.HomeFragment
 import com.sidiq.sibi.ui.leaderboard.LeaderboardFragment
 import com.sidiq.sibi.ui.profile.ProfileFragment
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainMenuBinding
 

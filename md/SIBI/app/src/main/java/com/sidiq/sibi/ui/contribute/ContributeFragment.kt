@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sidiq.sibi.databinding.FragmentContributeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ContributeFragment : Fragment() {
     private lateinit var binding: FragmentContributeBinding
 

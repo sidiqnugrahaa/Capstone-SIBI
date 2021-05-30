@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.sidiq.sibi.databinding.ActivityLearnBinding
 import com.sidiq.sibi.domain.model.Alphabet
 import com.sidiq.sibi.domain.model.LearningData
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LearningActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLearnBinding
     private var list: ArrayList<Alphabet> = arrayListOf()

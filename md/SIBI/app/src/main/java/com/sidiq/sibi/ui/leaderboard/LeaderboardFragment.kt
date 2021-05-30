@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.sidiq.sibi.R
 import com.sidiq.sibi.databinding.FragmentLeaderboardBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class LeaderboardFragment : Fragment() {
     private lateinit var binding: FragmentLeaderboardBinding
 

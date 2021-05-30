@@ -3,7 +3,9 @@ package com.sidiq.sibi.ui.practice
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sidiq.sibi.databinding.ActivityPracticeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PracticeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPracticeBinding
 
