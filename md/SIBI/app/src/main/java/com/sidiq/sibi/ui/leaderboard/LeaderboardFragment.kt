@@ -37,12 +37,8 @@ class LeaderboardFragment : Fragment() {
         binding.leaderboardViewpager.adapter = tabAdapter
         TabLayoutMediator(binding.leaderboardTab, binding.leaderboardViewpager) { tab, position ->
             when (position) {
-                0 -> {
-                    tab.text = resources.getString(R.string.record)
-                }
-                1 -> {
-                    tab.text = resources.getString(R.string.global_rank)
-                }
+                0 -> { tab.text = resources.getString(R.string.record) }
+                1 -> { tab.text = resources.getString(R.string.global_rank) }
             }
         }.attach()
     }
