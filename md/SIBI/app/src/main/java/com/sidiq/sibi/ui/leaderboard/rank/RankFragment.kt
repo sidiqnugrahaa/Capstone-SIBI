@@ -32,14 +32,16 @@ class RankFragment  : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            leaderBoardViewModel.users.observe(viewLifecycleOwner){
+            leaderBoardViewModel.globalRank.observe(viewLifecycleOwner){
                 when(it){
                     is Resource.Loading -> {
                         //TODO: Add Spinner / Loading
+                        binding.status.text = "Loading..."
                         Log.d("STATUS", "Loading")
                     }
 
                     is Resource.Success -> {
+                        binding.status.text = ""
                         rankAdapter.users = it.data
                         binding.rvGlobalRank.apply {
                             adapter = rankAdapter
@@ -47,8 +49,13 @@ class RankFragment  : Fragment() {
                         }
                     }
 
+                    is Resource.Empty -> {
+                        binding.status.text = "Empty"
+                        Log.d("STATUS", "EMPTY")
+                    }
+
                     is Resource.Failure -> {
-                        //TODO: Add View For Empty
+                        binding.status.text = "Error"
                         Log.d("STATUS", it.throwable.message!!)
                     }
                 }
