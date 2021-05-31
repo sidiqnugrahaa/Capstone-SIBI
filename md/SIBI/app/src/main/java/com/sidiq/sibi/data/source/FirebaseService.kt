@@ -22,11 +22,6 @@ class FirebaseService @Inject constructor(
     private val firestore: FirebaseFirestore,
     private val auth: FirebaseAuth) {
 
-    suspend fun getUsers(): Resource<List<AuthUser>> {
-        val results = firestore.collection(COLLECTION_USER).get().await().toUser()!!
-        return Resource.Success(results)
-    }
-
     suspend fun createUser(user: AuthUser) : Result<Void?> {
         return try {
             Result.Success(

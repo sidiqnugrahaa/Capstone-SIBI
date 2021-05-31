@@ -18,18 +18,6 @@ class UserRepository @Inject constructor(
     private val service: FirebaseService
 ) {
 
-    fun getUsers(): Flow<Resource<List<AuthUser>>> {
-        return flow {
-            emit(Resource.Loading())
-            try {
-                val results = service.getUsers()
-                emit(results)
-            }catch (e: Exception){
-                emit(Resource.Failure<Nothing>(e))
-            }
-        }.flowOn(Dispatchers.IO)
-    }
-
     suspend fun createUser(user: AuthUser) = service.createUser(user)
 
     suspend fun checkUserAuth() = service.checkUserAuth()
