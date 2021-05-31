@@ -42,11 +42,12 @@ object CameraUtil {
                     windowManager: WindowManager) : Preview {
         val metrics = DisplayMetrics().also { textureView.display.getRealMetrics(it) }
         val screenSize = Size(metrics.widthPixels, metrics.heightPixels)
-        val screenAspectRatio = Rational(1, 1)
+        val screenAspectRatio = Rational(4, 3)
 
         val previewConfig = PreviewConfig.Builder().apply {
             setLensFacing(lensFacing)
             setTargetResolution(screenSize)
+            setTargetAspectRatio(screenAspectRatio)
             setTargetRotation(windowManager.defaultDisplay.rotation)
             setTargetRotation(textureView.display.rotation)
         }.build()

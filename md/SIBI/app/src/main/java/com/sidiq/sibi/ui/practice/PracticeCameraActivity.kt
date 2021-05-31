@@ -21,7 +21,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class PracticeCameraActivity : AppCompatActivity() {
     var lensFacing = CameraX.LensFacing.BACK
 
-    private lateinit var bitmapBuffer: Bitmap
     private var pauseAnalysis = false
     private var imageRotationDegrees: Int = 0
 
@@ -93,20 +92,23 @@ class PracticeCameraActivity : AppCompatActivity() {
                 return@Analyzer
             }
 
-            imageRotationDegrees = rotationDegrees
-            bitmapBuffer = image.toBitmap()
+            val bitmapBuffer = image.toBitmap()
 
             tfLiteClassifier
                 .classifyAsync(bitmapBuffer)
                 .addOnSuccessListener { resultText ->
                     label = resultText
-                    if(resultText == "space") {
-                        binding.predictedTextView.text = resultText
-                        pauseAnalysis = true
-                    }
+                    binding.predictedTextView.text = resultText
+
+//                    if(resultText == "space") {
+//                        binding.predictedTextView.text = resultText
+//                        pauseAnalysis = true
+//                    }
                 }
                 .addOnFailureListener { error ->  }
         }
+
+        CameraX.unbindAll()
 
         CameraX.bindToLifecycle(this, preview, imageAnalysis)
     }
@@ -127,6 +129,7 @@ class PracticeCameraActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         tfLiteClassifier.close()
+        CameraX.unbindAll()
         super.onDestroy()
     }
 }
