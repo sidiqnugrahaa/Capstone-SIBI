@@ -15,9 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIBI">
-        <activity android:name=".ui.contribute.ContributeCameraActivity"></activity>
-        <activity android:name="com.sidiq.sibi.ui.maingame.game.GameCameraActivity" />
-        <activity android:name="com.sidiq.sibi.ui.maingame.practice.PracticeCameraActivity" />
+        <activity android:name=".ui.maingame.game.GameResultActivity"></activity>
+        <activity android:name=".ui.contribute.ContributeCameraActivity" />
+        <activity android:name=".ui.maingame.game.GameCameraActivity" />
+        <activity android:name=".ui.maingame.practice.PracticeCameraActivity" />
         <activity android:name=".ui.start.StartActivity" />
         <activity android:name=".ui.splashscreen.SplashActivity">
             <intent-filter>
@@ -29,8 +30,8 @@
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.learning.LearningActivity" />
         <activity android:name=".ui.learning.LearningDetailActivity" />
-        <activity android:name="com.sidiq.sibi.ui.maingame.game.GameActivity" />
-        <activity android:name="com.sidiq.sibi.ui.maingame.practice.PracticeActivity" />
+        <activity android:name=".ui.maingame.game.GameActivity" />
+        <activity android:name=".ui.maingame.practice.PracticeActivity" />
     </application>
 
 </manifest>
