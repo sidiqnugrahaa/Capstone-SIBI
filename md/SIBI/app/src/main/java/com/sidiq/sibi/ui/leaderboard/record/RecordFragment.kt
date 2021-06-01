@@ -49,7 +49,7 @@ class RecordFragment  : Fragment() {
                         }
 
                         is Resource.Success -> {
-                            binding.status.text = ""
+                            binding.status.text = "Loaded"
                             recordAdapter.histories = it.data
                             binding.rvRecord.apply {
                                 adapter = recordAdapter

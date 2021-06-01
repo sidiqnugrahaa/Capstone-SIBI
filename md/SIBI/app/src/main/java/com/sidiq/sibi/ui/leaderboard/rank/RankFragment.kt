@@ -41,7 +41,7 @@ class RankFragment  : Fragment() {
                     }
 
                     is Resource.Success -> {
-                        binding.status.text = ""
+                        binding.status.text = "Loaded"
                         rankAdapter.users = it.data
                         binding.rvGlobalRank.apply {
                             adapter = rankAdapter
