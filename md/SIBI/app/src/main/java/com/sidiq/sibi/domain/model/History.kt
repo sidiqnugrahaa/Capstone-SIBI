@@ -15,6 +15,7 @@ data class History(
     @DocumentId
     var docId: String = "",
     var timestamp: Timestamp? = null,
+    var type: String? = null,
     var score: Long? = null
 ): Parcelable {
 

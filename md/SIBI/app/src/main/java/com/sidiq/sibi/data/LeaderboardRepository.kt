@@ -10,6 +10,8 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 import javax.inject.Singleton
+import com.sidiq.sibi.data.wrapper.Result
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @Singleton
 class LeaderboardRepository @Inject constructor(
@@ -38,6 +40,10 @@ class LeaderboardRepository @Inject constructor(
             }
         }.flowOn(Dispatchers.IO)
     }
+
+    @ExperimentalCoroutinesApi
+    suspend fun insertHistory(userid: String, history: History) =
+        service.insertHistory(userid, history)
 
 
 }

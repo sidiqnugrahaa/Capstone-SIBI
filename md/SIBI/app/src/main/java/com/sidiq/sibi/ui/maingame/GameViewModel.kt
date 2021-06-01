@@ -21,11 +21,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.Timestamp
 import com.sidiq.sibi.data.LeaderboardRepository
+import com.sidiq.sibi.domain.model.History
+import com.sidiq.sibi.utils.SingleEvent
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.label.Category
 import javax.inject.Inject
+import com.sidiq.sibi.data.wrapper.Result
 
 data class Recognition(val label:String, val confidence:Float, val bitmap: Bitmap) {
 
@@ -41,8 +47,9 @@ data class Recognition(val label:String, val confidence:Float, val bitmap: Bitma
 
 }
 
-class RecognitionListViewModel @Inject constructor(
-    repository: LeaderboardRepository) : ViewModel() {
+@HiltViewModel
+class GameViewModel @Inject constructor(
+    private val repository: LeaderboardRepository) : ViewModel() {
 
     private val _toast = MutableLiveData<String?>()
     val toast : LiveData<String?> get() = _toast
@@ -50,14 +57,27 @@ class RecognitionListViewModel @Inject constructor(
     private val _spinner = MutableLiveData(false)
     val spinner : LiveData<Boolean> get() = _spinner
 
+    private val _navigate = MutableLiveData<SingleEvent<Int>>()
+    val navigate : LiveData<SingleEvent<Int>> get() = _navigate
+
     private val _recognition = MutableLiveData<Recognition>()
     val recognition: LiveData<Recognition> = _recognition
+
+    private val _result = MutableLiveData<Result<Void>>()
+    val result : LiveData<Result<Void>> get() = _result
 
     fun updateData(recognition: Recognition){
         _recognition.postValue(recognition)
     }
 
-
+    @ExperimentalCoroutinesApi
+    fun insertHistory(score: Int, type: String, userId : String){
+        launchDataLoad {
+            val timestamp = Timestamp.now()
+            val history = History(timestamp = timestamp, type = type, score = score.toLong())
+            _result.postValue(repository.insertHistory(userId, history))
+        }
+    }
 
     private fun launchDataLoad(block: suspend () -> Unit): Job {
         return viewModelScope.launch {

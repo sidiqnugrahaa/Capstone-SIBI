@@ -35,7 +35,7 @@ class RecordAdapter(
 
         fun bind(history: History){
             with(binding){
-                timestamp.text = history.timestamp.toString()
+                timestamp.text = history.type
                 score.text = "${history.score}"
             }
         }
