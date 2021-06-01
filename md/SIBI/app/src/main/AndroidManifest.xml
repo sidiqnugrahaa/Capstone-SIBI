@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sidiq.sibi">
 
+    <uses-feature android:name="android.hardware.camera.any" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,8 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SIBI">
         <activity android:name=".ui.contribute.ContributeCameraActivity"></activity>
-        <activity android:name=".ui.game.GameCameraActivity" />
-        <activity android:name=".ui.practice.PracticeCameraActivity" />
+        <activity android:name="com.sidiq.sibi.ui.maingame.game.GameCameraActivity" />
+        <activity android:name="com.sidiq.sibi.ui.maingame.practice.PracticeCameraActivity" />
         <activity android:name=".ui.start.StartActivity" />
         <activity android:name=".ui.splashscreen.SplashActivity">
             <intent-filter>
@@ -27,8 +29,8 @@
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.learning.LearningActivity" />
         <activity android:name=".ui.learning.LearningDetailActivity" />
-        <activity android:name=".ui.game.GameActivity" />
-        <activity android:name=".ui.practice.PracticeActivity" />
+        <activity android:name="com.sidiq.sibi.ui.maingame.game.GameActivity" />
+        <activity android:name="com.sidiq.sibi.ui.maingame.practice.PracticeActivity" />
     </application>
 
 </manifest>
