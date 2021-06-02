@@ -89,7 +89,7 @@ class GameCameraActivity : AppCompatActivity() {
     }
 
     private fun startCamera() {
-        CameraUtil.startCamera(ctx = this, cameraExecutor = cameraExecutor,
+        CameraUtil.startAnalyze(ctx = this, cameraExecutor = cameraExecutor,
             lifecycleOwner = this, previewView = binding.viewFinder){ item ->
             gameViewModel.updateData(item)
         }

@@ -1,5 +1,6 @@
 package com.sidiq.sibi.ui.contribute
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,14 @@ class ContributeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
 
+            val word = ""
+
+            binding.btnStartContrib.setOnClickListener {
+                val intent = Intent(activity, ContributeCameraActivity::class.java).apply {
+                    putExtra(ContributeCameraActivity.EXTRA_WORD, word)
+                }
+                startActivity(intent)
+            }
         }
     }
 }

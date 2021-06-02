@@ -6,8 +6,6 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.text.SpannableString
-import android.text.Spanned
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
@@ -18,9 +16,9 @@ import com.sidiq.sibi.domain.model.Alphabet
 import com.sidiq.sibi.domain.model.LearningData
 import com.sidiq.sibi.ui.maingame.Recognition
 import com.sidiq.sibi.ui.maingame.GameViewModel
-import com.sidiq.sibi.ui.maingame.game.GameResultActivity
-import com.sidiq.sibi.utils.COLOR_CORRECT
 import com.sidiq.sibi.utils.CameraUtil
+import com.sidiq.sibi.utils.TIME_PRACTICE
+import com.sidiq.sibi.utils.TIME_PRACTICE_ADD
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.Executors
 
@@ -60,7 +58,7 @@ class PracticeCameraActivity : AppCompatActivity() {
 
         alphabet = intent.getParcelableExtra(EXTRA_ALPHABET)!!
 
-        timer = createTimer(5)
+        timer = createTimer(TIME_PRACTICE)
         timer.start()
 
         gameViewModel.recognition.observe(this){ recognition ->
@@ -84,7 +82,7 @@ class PracticeCameraActivity : AppCompatActivity() {
     }
 
     private fun startCamera() {
-        CameraUtil.startCamera(ctx = this, cameraExecutor = cameraExecutor,
+        CameraUtil.startAnalyze(ctx = this, cameraExecutor = cameraExecutor,
             lifecycleOwner = this, previewView = binding.viewFinder){ item ->
                 gameViewModel.updateData(item)
             }
@@ -92,7 +90,7 @@ class PracticeCameraActivity : AppCompatActivity() {
 
     private fun refreshTimer() {
         timer.cancel()
-        timer = createTimer(remainingTime + 3)
+        timer = createTimer(remainingTime + TIME_PRACTICE_ADD)
         timer.start()
     }
 

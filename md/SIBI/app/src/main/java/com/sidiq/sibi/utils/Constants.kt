@@ -13,6 +13,9 @@ const val SCORE_MULTIPLIER = 20
 val COLOR_CORRECT = ForegroundColorSpan(Color.GREEN)
 const val INPUT_IMAGE_SIZE = 224
 const val TIME_PRACTICE = 5L
+const val TIME_PRACTICE_ADD = 3L
 const val TIME_GAME = 15L
+const val TIME_CONTRIB = 10L
+const val CONTRIB_SCORE = 100
 
 const val BASE_URL = ""

@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIBI">
-        <activity android:name=".ui.maingame.practice.PracticeResultActivity"></activity>
+        <activity android:name=".ui.contribute.ContributeResultActivity"></activity>
+        <activity android:name=".ui.maingame.practice.PracticeResultActivity" />
         <activity android:name=".ui.maingame.game.GameResultActivity" />
         <activity android:name=".ui.contribute.ContributeCameraActivity" />
         <activity android:name=".ui.maingame.game.GameCameraActivity" />
