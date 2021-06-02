@@ -31,6 +31,8 @@ class LearningActivity : AppCompatActivity() {
             adapter.setOnItemClickCallback(object : LearningAdapter.OnItemClickCallback {
                 override fun onItemClicked(data: Alphabet) {
                     Intent(this@LearningActivity, LearningDetailActivity::class.java).also {
+                        it.putExtra(LearningDetailActivity.EXTRA_IMG, data.icon)
+                        it.putExtra(LearningDetailActivity.EXTRA_URL, data.video_url)
                         startActivity(it)
                     }
                 }
