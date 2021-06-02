@@ -3,12 +3,21 @@ package com.sidiq.sibi.domain.model
 import android.os.Parcelable
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
+import com.google.firebase.firestore.Exclude
 import kotlinx.parcelize.Parcelize
+
+
+@Parcelize
+data class Word(
+    @DocumentId
+    var word: String = "",
+
+    var contrib: Contrib? = null
+): Parcelable
 
 @Parcelize
 data class Contrib(
     @DocumentId
-    var word: String = "",
     var userId: String = "",
     var fileUri: String = "",
     var timestamp: Timestamp? = null,

@@ -5,6 +5,8 @@ import android.text.style.ForegroundColorSpan
 
 const val COLLECTION_USER = "users"
 const val COLLECTION_HISTORY = "history"
+const val COLLECTION_WORD = "words"
+const val COLLECTION_WORD_FILE = "files"
 const val FIELD_SCORE = "score"
 const val LIMIT_RANK = 10L
 const val FIELD_TIMESTAMP = "timestamp"

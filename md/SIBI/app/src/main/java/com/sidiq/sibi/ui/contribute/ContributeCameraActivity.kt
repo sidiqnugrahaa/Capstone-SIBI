@@ -19,6 +19,7 @@ import com.google.firebase.Timestamp
 import com.sidiq.sibi.R
 import com.sidiq.sibi.databinding.ActivityContributeCameraBinding
 import com.sidiq.sibi.domain.model.Contrib
+import com.sidiq.sibi.domain.model.Word
 import com.sidiq.sibi.ui.maingame.game.GameCameraActivity
 import com.sidiq.sibi.utils.CameraUtil
 import com.sidiq.sibi.utils.GameTimer
@@ -49,7 +50,7 @@ class ContributeCameraActivity : AppCompatActivity() {
     private var outputDirectory : File? = null
     private lateinit var videoCapture : VideoCapture
     private lateinit var timer: CountDownTimer
-    private var word = ""
+    private var word = "masak"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,8 +82,8 @@ class ContributeCameraActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
-        word = intent.getStringExtra(GameCameraActivity.EXTRA_WORD)!!
-
+//        word = intent.getStringExtra(GameCameraActivity.EXTRA_WORD)!!
+        word = "masak"
 
 
     }
@@ -128,7 +129,8 @@ class ContributeCameraActivity : AppCompatActivity() {
         if(!isFinished){
             isFinished = true
 
-            val data = Contrib(word, savedUri.toString(), Timestamp.now())
+            val data = Word(word, Contrib(fileUri = savedUri.toString(),
+                timestamp = Timestamp.now()))
             val intent = Intent(this, ContributeResultActivity::class.java).apply {
                 putExtra(ContributeResultActivity.EXTRA_CONTRIB, data)
             }

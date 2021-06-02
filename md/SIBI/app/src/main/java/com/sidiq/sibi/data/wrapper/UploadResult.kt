@@ -9,7 +9,7 @@ sealed class UploadResult {
     data class Paused(val task: UploadTask.TaskSnapshot) : UploadResult()
 
     sealed class Complete: UploadResult(){
-        data class Success(val downloadUri: Uri) : Complete()
+        object Success : Complete()
         data class Failed(val error: Throwable) : Complete()
         object Cancelled : Complete()
     }
