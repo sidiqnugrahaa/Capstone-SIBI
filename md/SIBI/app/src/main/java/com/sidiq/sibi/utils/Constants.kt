@@ -20,4 +20,4 @@ const val TIME_GAME = 15L
 const val TIME_CONTRIB = 10L
 const val CONTRIB_SCORE = 100
 
-const val BASE_URL = ""
+const val BASE_URL_FUNCTION = "https://us-central1-eminent-citadel-313506.cloudfunctions.net"

@@ -11,7 +11,7 @@ import kotlinx.parcelize.Parcelize
 data class Word(
     @DocumentId
     var word: String = "",
-
+    var link: String = "URL To Video",
     var contrib: Contrib? = null
 ): Parcelable
 

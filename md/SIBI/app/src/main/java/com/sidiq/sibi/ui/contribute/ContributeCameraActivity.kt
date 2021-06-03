@@ -50,7 +50,7 @@ class ContributeCameraActivity : AppCompatActivity() {
     private var outputDirectory : File? = null
     private lateinit var videoCapture : VideoCapture
     private lateinit var timer: CountDownTimer
-    private var word = "masak"
+    private var word = Word()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,23 +67,17 @@ class ContributeCameraActivity : AppCompatActivity() {
 
         if (allPermissionsGranted()) {
             outputDirectory = getMediaOutputDirectory()
-
             startCamera()
-
             binding.cameraCaptureButton.setOnClickListener{
-
                 timer.start()
-
                 it.visibility = View.GONE
-
                 startRecording()
             }
         } else {
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
-//        word = intent.getStringExtra(GameCameraActivity.EXTRA_WORD)!!
-        word = "masak"
+        word = intent.getParcelableExtra(GameCameraActivity.EXTRA_WORD)!!
 
 
     }
@@ -96,11 +90,8 @@ class ContributeCameraActivity : AppCompatActivity() {
                 startCamera()
 
                 binding.cameraCaptureButton.setOnClickListener{
-
                     timer.start()
-
                     it.visibility = View.GONE
-
                     startRecording()
                 }
             } else {
@@ -125,11 +116,11 @@ class ContributeCameraActivity : AppCompatActivity() {
             mediaDir else filesDir
     }
 
-    private fun goToResult(word: String, savedUri: Uri){
+    private fun goToResult(word: Word, savedUri: Uri){
         if(!isFinished){
             isFinished = true
 
-            val data = Word(word, Contrib(fileUri = savedUri.toString(),
+            val data = Word(word.word, word.link, Contrib(fileUri = savedUri.toString(),
                 timestamp = Timestamp.now()))
             val intent = Intent(this, ContributeResultActivity::class.java).apply {
                 putExtra(ContributeResultActivity.EXTRA_CONTRIB, data)

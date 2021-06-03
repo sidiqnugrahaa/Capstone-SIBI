@@ -16,7 +16,6 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
 @Singleton
 class FirebaseService @Inject constructor(
     private val firestore: FirebaseFirestore,
