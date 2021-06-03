@@ -51,10 +51,19 @@
                 android:textSize="20sp"
                 android:layout_marginBottom="8dp"/>
 
-            <VideoView
-                android:id="@+id/learningVideo"
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/exoplayerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="200dp">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="visible" />
+
+            </com.google.android.exoplayer2.ui.PlayerView>
 
         </LinearLayout>
     </LinearLayout>
