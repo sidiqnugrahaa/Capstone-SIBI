@@ -14,7 +14,9 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.sidiq.sibi.databinding.ActivityDetailLearnBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LearningDetailActivity : AppCompatActivity(), Player.Listener {
     private lateinit var binding: ActivityDetailLearnBinding
 

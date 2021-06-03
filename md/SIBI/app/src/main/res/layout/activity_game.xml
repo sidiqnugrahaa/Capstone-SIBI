@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/bg_mainmenu"
@@ -74,10 +75,12 @@
                 android:textSize="16sp"/>
 
             <TextView
+                android:id="@+id/tv_word"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="P A N A S"
+                tools:text="PANAS"
+                android:letterSpacing=".5"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/orange"
                 android:textSize="40sp"/>
@@ -101,14 +104,14 @@
             <!-- add camera view-->
         </LinearLayout>
 
-        <android.widget.Button
-            android:id="@+id/btn_finish_practice"
+        <Button
+            android:id="@+id/btn_start_game"
             android:layout_width="148dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:background="@drawable/fill_round_orange"
             android:padding="4dp"
-            android:text="Selesai"
+            android:text="Mulai"
             android:textAllCaps="false"
             android:textColor="#FFF"
             android:textSize="16sp"

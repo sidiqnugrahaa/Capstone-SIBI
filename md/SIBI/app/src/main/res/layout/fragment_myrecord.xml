@@ -14,7 +14,16 @@
         android:textColor="@color/dark_blue"
         android:layout_margin="24dp"/>
 
+    <TextView
+        android:id="@+id/status"
+        android:text=""
+        tools:text="Loading..."
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_record"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
