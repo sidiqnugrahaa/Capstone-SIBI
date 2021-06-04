@@ -120,7 +120,7 @@ class ContributeCameraActivity : AppCompatActivity() {
         if(!isFinished){
             isFinished = true
 
-            val data = Word(word.word, word.link, Contrib(fileUri = savedUri.toString(),
+            val data = Word(word.word.lowercase(), word.link, Contrib(fileUri = savedUri.toString(),
                 timestamp = Timestamp.now()))
             val intent = Intent(this, ContributeResultActivity::class.java).apply {
                 putExtra(ContributeResultActivity.EXTRA_CONTRIB, data)
