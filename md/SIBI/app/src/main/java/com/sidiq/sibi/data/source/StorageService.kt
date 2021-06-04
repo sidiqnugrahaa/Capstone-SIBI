@@ -5,7 +5,6 @@ import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.sidiq.sibi.data.wrapper.UploadResult
-import com.sidiq.sibi.domain.model.Contrib
 import com.sidiq.sibi.domain.model.Contrib.Companion.toHistory
 import com.sidiq.sibi.domain.model.Word
 import com.sidiq.sibi.utils.COLLECTION_HISTORY
@@ -29,7 +28,7 @@ class StorageService @Inject constructor(
     suspend fun uploadContrib(word: Word) : Flow<UploadResult> = callbackFlow {
         val uri = Uri.parse(word.contrib?.fileUri)
         val storageRef = storage.reference
-        val photoRef = storageRef.child("contrib").child(uri.lastPathSegment!!)
+        val photoRef = storageRef.child("contrib").child(word.word).child(uri.lastPathSegment!!)
         photoRef.putFile(uri)
             .addOnSuccessListener {
                 it.task.continueWithTask {
