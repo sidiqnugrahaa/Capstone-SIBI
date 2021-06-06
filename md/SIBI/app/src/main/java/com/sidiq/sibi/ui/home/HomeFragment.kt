@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
@@ -45,6 +46,10 @@ class HomeFragment : Fragment() {
             binding.game.setOnClickListener(View.OnClickListener {
                 startActivity(Intent(context, GameActivity::class.java))
             })
+            binding.learnWord.setOnClickListener {
+                Toast.makeText(requireContext(), "Terus Ikuti Perkembangan Permainan Ini " +
+                        "Untuk Mendapatkan Update Mengenai Fitur Ini", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
