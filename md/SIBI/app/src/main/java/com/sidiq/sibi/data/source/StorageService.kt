@@ -28,7 +28,8 @@ class StorageService @Inject constructor(
     suspend fun uploadContrib(word: Word) : Flow<UploadResult> = callbackFlow {
         val uri = Uri.parse(word.contrib?.fileUri)
         val storageRef = storage.reference
-        val photoRef = storageRef.child("contrib").child(word.word).child(uri.lastPathSegment!!)
+        val photoRef = storageRef.child("contrib").child(word.word).child(
+            "${word.contrib?.userId}${uri.lastPathSegment!!}")
         photoRef.putFile(uri)
             .addOnSuccessListener {
                 it.task.continueWithTask {
