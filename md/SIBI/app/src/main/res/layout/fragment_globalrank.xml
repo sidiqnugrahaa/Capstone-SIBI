@@ -16,9 +16,9 @@
         android:layout_marginBottom="8dp"/>
 
     <TextView
-        android:id="@+id/status"
+        android:id="@+id/view_empty"
         android:text=""
-        tools:text="Loading..."
+        tools:text="Data Kosong"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -30,5 +30,14 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         tools:listitem="@layout/item_global_rank"/>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/regular_blue"
+        android:visibility="visible" />
 
 </LinearLayout>

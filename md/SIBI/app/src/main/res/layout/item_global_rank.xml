@@ -2,16 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/main_content"
-    android:layout_marginTop="12dp"
     android:paddingStart="8dp"
     android:paddingEnd="8dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
     android:layout_marginBottom="12dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/avatar_user"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:src="@drawable/user_female"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"/>
@@ -22,11 +24,13 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/avatar_user"
-        android:text="Username"
+        tools:text="Dimas Anom Priyayi A2229074"
         android:layout_marginStart="16dp"
         android:textColor="@color/dark_blue"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:ellipsize="end"
+        android:maxLength="20"/>
 
     <TextView
         android:id="@+id/score_user"
@@ -37,7 +41,7 @@
         android:paddingEnd="16dp"
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:text="1800"/>
 

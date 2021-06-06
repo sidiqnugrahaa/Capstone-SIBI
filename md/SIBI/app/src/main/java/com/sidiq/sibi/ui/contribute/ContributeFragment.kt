@@ -101,7 +101,10 @@ class ContributeFragment : Fragment(), Player.Listener  {
     private fun releasePlayer() {
         playerWhenReady = exoPlayer.playWhenReady
         playbackPosition = exoPlayer.currentPosition
+
+        exoPlayer.removeListener(this)
         exoPlayer.release()
+        binding.exoplayerView.player = null
     }
 
     private fun preparePlayer() {
@@ -119,6 +122,11 @@ class ContributeFragment : Fragment(), Player.Listener  {
             binding.progressBar.visibility = View.VISIBLE
         else if (playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED)
             binding.progressBar.visibility = View.INVISIBLE
+    }
+
+    override fun onDestroy() {
+        releasePlayer()
+        super.onDestroy()
     }
 
 }

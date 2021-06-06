@@ -43,13 +43,14 @@ class RecordFragment  : Fragment() {
                 leaderBoardViewModel.history(userId).observe(viewLifecycleOwner){
                     when(it){
                         is Resource.Loading -> {
-                            //TODO: Add Spinner / Loading
-                            binding.status.text = "Loading..."
-                            Log.d("STATUS", "Loading")
+                            binding.loading.visibility = View.VISIBLE
+                            binding.viewEmpty.visibility = View.GONE
                         }
 
                         is Resource.Success -> {
-                            binding.status.text = "Loaded"
+                            binding.loading.visibility = View.GONE
+                            binding.viewEmpty.visibility = View.GONE
+
                             recordAdapter.histories = it.data
                             binding.rvRecord.apply {
                                 adapter = recordAdapter
@@ -58,12 +59,19 @@ class RecordFragment  : Fragment() {
                         }
 
                         is Resource.Empty -> {
-                            binding.status.text = "Empty"
-                            Log.d("STATUS", "EMPTY")
+                            binding.loading.visibility = View.GONE
+                            binding.viewEmpty.apply {
+                                visibility = View.VISIBLE
+                                text = "Data Kosong"
+                            }
                         }
 
                         is Resource.Failure -> {
-                            binding.status.text = "Error"
+                            binding.loading.visibility = View.GONE
+                            binding.viewEmpty.apply {
+                                visibility = View.VISIBLE
+                                text = "Error Mengambil Data"
+                            }
                             Log.d("STATUS", it.throwable.message!!)
                         }
                     }

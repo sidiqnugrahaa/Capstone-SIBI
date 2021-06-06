@@ -164,7 +164,7 @@
                         android:layout_height="wrap_content"
                         android:text="Kata - Kata Dasar"
                         android:textColor="@color/dark_blue"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                     <!-- SOON Progress BAR-->
                 </LinearLayout>

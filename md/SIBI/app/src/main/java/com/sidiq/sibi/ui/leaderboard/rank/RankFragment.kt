@@ -35,13 +35,14 @@ class RankFragment  : Fragment() {
             leaderBoardViewModel.globalRank.observe(viewLifecycleOwner){
                 when(it){
                     is Resource.Loading -> {
-                        //TODO: Add Spinner / Loading
-                        binding.status.text = "Loading..."
-                        Log.d("STATUS", "Loading")
+                        binding.loading.visibility = View.VISIBLE
+                        binding.viewEmpty.visibility = View.GONE
                     }
 
                     is Resource.Success -> {
-                        binding.status.text = "Loaded"
+                        binding.loading.visibility = View.GONE
+                        binding.viewEmpty.visibility = View.GONE
+
                         rankAdapter.users = it.data
                         binding.rvGlobalRank.apply {
                             adapter = rankAdapter
@@ -50,12 +51,19 @@ class RankFragment  : Fragment() {
                     }
 
                     is Resource.Empty -> {
-                        binding.status.text = "Empty"
-                        Log.d("STATUS", "EMPTY")
+                        binding.loading.visibility = View.GONE
+                        binding.viewEmpty.apply {
+                            visibility = View.VISIBLE
+                            text = "Data Kosong"
+                        }
                     }
 
                     is Resource.Failure -> {
-                        binding.status.text = "Error"
+                        binding.loading.visibility = View.GONE
+                        binding.viewEmpty.apply {
+                            visibility = View.VISIBLE
+                            text = "Error Mengambil Data"
+                        }
                         Log.d("STATUS", it.throwable.message!!)
                     }
                 }
