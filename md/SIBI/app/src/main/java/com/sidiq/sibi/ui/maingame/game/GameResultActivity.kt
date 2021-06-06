@@ -2,6 +2,7 @@ package com.sidiq.sibi.ui.maingame.game
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.sidiq.sibi.R
@@ -48,16 +49,16 @@ class GameResultActivity : AppCompatActivity() {
         gameViewModel.insertHistory(score, "Bermain", user.userId)
         gameViewModel.result.observe(this){
             when(it){
-                is Result.Success -> Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show()
-                is Result.Error -> Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
-                else -> Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+                is Result.Success -> Toast.makeText(this, "Berhasil Mengirim Data", Toast.LENGTH_SHORT).show()
+                is Result.Error -> Toast.makeText(this, "Gagal Mengirim Data", Toast.LENGTH_SHORT).show()
+                else -> Toast.makeText(this, "Gagal Mengirim Data", Toast.LENGTH_SHORT).show()
             }
         }
 
         gameViewModel.spinner.observe(this){
             when(it){
-                true -> binding.status.text = "Loading..."
-                else -> binding.status.text = "Loaded"
+                true -> binding.loading.visibility = View.VISIBLE
+                else -> binding.loading.visibility = View.GONE
             }
         }
     }

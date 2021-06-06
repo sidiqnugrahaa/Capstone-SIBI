@@ -2,6 +2,9 @@ package com.sidiq.sibi.ui.contribute
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.sidiq.sibi.data.wrapper.UploadResult
 import com.sidiq.sibi.databinding.ActivityContributeResultBinding
@@ -39,11 +42,31 @@ class ContributeResultActivity : AppCompatActivity() {
         contributeViewModel.insertContrib(word)
         contributeViewModel.result.observe(this){ result ->
             when(result){
-                is UploadResult.InProgress -> binding.status.text = "Loading..."
-                is UploadResult.Paused -> binding.status.text = "Paused"
-                is UploadResult.Complete.Success -> binding.status.text = "Success"
-                is UploadResult.Complete.Cancelled -> binding.status.text = "Cancelled"
-                is UploadResult.Complete.Failed -> binding.status.text = "Failed"
+                is UploadResult.InProgress -> {
+                    binding.loading.visibility = View.VISIBLE
+                    binding.btnBackHome.isEnabled = false
+                }
+                is UploadResult.Paused -> {
+                    binding.loading.visibility = View.GONE
+                    binding.btnBackHome.isEnabled = true
+                    Toast.makeText(this, "Upload Paused", Toast.LENGTH_SHORT).show()
+                }
+                is UploadResult.Complete.Success -> {
+                    binding.loading.visibility = View.GONE
+                    binding.btnBackHome.isEnabled = true
+                    Toast.makeText(this, "Berhasil Kontribusi", Toast.LENGTH_SHORT).show()
+                }
+                is UploadResult.Complete.Cancelled -> {
+                    binding.loading.visibility = View.GONE
+                    binding.btnBackHome.isEnabled = true
+                    Toast.makeText(this, "Upload Dihentikan", Toast.LENGTH_SHORT).show()
+                }
+                is UploadResult.Complete.Failed -> {
+                    binding.loading.visibility = View.GONE
+                    binding.btnBackHome.isEnabled = true
+                    result.error.message?.let { Log.e("UPLOAD", it) }
+                    Toast.makeText(this, "Gagal Mengupload", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

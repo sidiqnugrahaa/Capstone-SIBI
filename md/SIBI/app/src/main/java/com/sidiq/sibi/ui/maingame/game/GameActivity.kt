@@ -2,6 +2,7 @@ package com.sidiq.sibi.ui.maingame.game
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -31,14 +32,19 @@ class GameActivity : AppCompatActivity() {
     private fun initView(){
         functionViewModel.word.observe(this){
             when(it){
-                is Resource.Loading -> { binding.btnStartGame.isEnabled = false }
+                is Resource.Loading -> {
+                    binding.loading.visibility = View.VISIBLE
+                    binding.btnStartGame.isEnabled = false
+                }
 
                 is Resource.Failure -> {
+                    binding.loading.visibility = View.GONE
                     binding.btnStartGame.isEnabled = false
                     Toast.makeText(this, "Gagal Ambil Data", Toast.LENGTH_SHORT).show()
                 }
 
                 is Resource.Success -> {
+                    binding.loading.visibility = View.GONE
                     string = it.data.word.uppercase()
                     binding.tvWord.text = string
                     binding.btnStartGame.isEnabled = true
@@ -47,6 +53,7 @@ class GameActivity : AppCompatActivity() {
                             putExtra(GameCameraActivity.EXTRA_WORD, string)
                         }
                         startActivity(intent)
+                        finish()
                     }
                 }
                 else -> {}
