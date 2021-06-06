@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sidiq.sibi">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
+        android:name=".SibiApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIBI">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.contribute.ContributeResultActivity"></activity>
+        <activity android:name=".ui.maingame.practice.PracticeResultActivity" />
+        <activity android:name=".ui.maingame.game.GameResultActivity" />
+        <activity android:name=".ui.contribute.ContributeCameraActivity" />
+        <activity android:name=".ui.maingame.game.GameCameraActivity" />
+        <activity android:name=".ui.maingame.practice.PracticeCameraActivity" />
+        <activity android:name=".ui.start.StartActivity" />
+        <activity android:name=".ui.splashscreen.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.learning.LearningActivity" />
         <activity android:name=".ui.learning.LearningDetailActivity" />
-        <activity android:name=".ui.game.GameActivity" />
-        <activity android:name=".ui.practice.PracticeActivity" />
+        <activity android:name=".ui.maingame.game.GameActivity" />
+        <activity android:name=".ui.maingame.practice.PracticeActivity" />
     </application>
 
 </manifest>

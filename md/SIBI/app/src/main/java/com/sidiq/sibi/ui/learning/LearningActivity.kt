@@ -6,9 +6,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sidiq.sibi.databinding.ActivityLearnBinding
-import com.sidiq.sibi.model.Alphabet
-import com.sidiq.sibi.model.LearningData
+import com.sidiq.sibi.domain.model.Alphabet
+import com.sidiq.sibi.domain.model.LearningData
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LearningActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLearnBinding
     private var list: ArrayList<Alphabet> = arrayListOf()

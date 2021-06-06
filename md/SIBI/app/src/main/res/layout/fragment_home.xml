@@ -38,10 +38,11 @@
                     android:src="@drawable/user_female" />
 
                 <TextView
+                    android:id="@+id/hello_user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Hallo, Jesslyn"
+                    tools:text="@string/hello_user"
                     android:textColor="@color/dark_blue"
                     android:textSize="18sp" />
             </LinearLayout>
