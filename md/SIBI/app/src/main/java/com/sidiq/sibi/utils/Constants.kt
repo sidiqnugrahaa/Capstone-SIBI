@@ -14,10 +14,13 @@ const val FIELD_TIMESTAMP = "timestamp"
 const val SCORE_MULTIPLIER = 20
 val COLOR_CORRECT = ForegroundColorSpan(Color.GREEN)
 const val INPUT_IMAGE_SIZE = 224
-const val TIME_PRACTICE = 5L
-const val TIME_PRACTICE_ADD = 3L
+const val TIME_PRACTICE = 7L
+const val TIME_PRACTICE_ADD = 4L
 const val TIME_GAME = 15L
 const val TIME_CONTRIB = 10L
-const val CONTRIB_SCORE = 100
+const val CONTRIB_SCORE = 100L
+
+const val MODEL_PATH = "detect.tflite"
+const val CONFIDENCE_THRESHOLD = 0.6f
 
 const val BASE_URL_FUNCTION = "https://us-central1-eminent-citadel-313506.cloudfunctions.net"

@@ -10,6 +10,7 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.camera.core.CameraSelector
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.sidiq.sibi.databinding.ActivityGameCameraBinding
@@ -77,6 +78,8 @@ class GameCameraActivity : AppCompatActivity() {
                                             grantResults: IntArray) {
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (allPermissionsGranted()) {
+                //finish()
+                //startActivity(intent)
                 startCamera()
             } else {
                 Toast.makeText(this, "Permissions not granted by the user.", Toast.LENGTH_SHORT)
@@ -90,6 +93,7 @@ class GameCameraActivity : AppCompatActivity() {
 
     private fun startCamera() {
         CameraUtil.startAnalyze(ctx = this, cameraExecutor = cameraExecutor,
+            type = CameraSelector.DEFAULT_BACK_CAMERA,
             lifecycleOwner = this, previewView = binding.viewFinder){ item ->
             gameViewModel.updateData(item)
         }

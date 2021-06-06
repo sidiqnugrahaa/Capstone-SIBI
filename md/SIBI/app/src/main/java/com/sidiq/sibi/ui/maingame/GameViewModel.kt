@@ -32,8 +32,9 @@ import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.label.Category
 import javax.inject.Inject
 import com.sidiq.sibi.data.wrapper.Result
+import org.tensorflow.lite.task.vision.detector.Detection
 
-data class Recognition(val label:String, val confidence:Float, val bitmap: Bitmap) {
+data class Recognition(val label:String, val confidence:Float) {
 
     override fun toString():String{
         return "$label / $probabilityString"
@@ -41,8 +42,20 @@ data class Recognition(val label:String, val confidence:Float, val bitmap: Bitma
     val probabilityString = String.format("%.1f%%", confidence * 100.0f)
 
     companion object {
-        fun Category.toLabel(bitmap: Bitmap) : Recognition =
-            Recognition(label, score, bitmap)
+
+        fun Detection.toRecognition() : Recognition{
+            return try {
+                val label = categories.apply {
+                    sortByDescending { it.score }
+                }[0]
+                Recognition(label.label, label.score)
+            }catch (exception: Exception){
+                Recognition("", 0f)
+            }
+        }
+
+        fun Category.toLabel() : Recognition =
+            Recognition(label, score)
     }
 
 }

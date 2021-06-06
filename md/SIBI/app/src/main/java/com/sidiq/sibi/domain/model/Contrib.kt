@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.Exclude
+import com.sidiq.sibi.utils.CONTRIB_SCORE
 import kotlinx.parcelize.Parcelize
 
 
@@ -28,7 +29,7 @@ data class Contrib(
             History(
                 timestamp = timestamp,
                 type = "Contributing",
-                score = 100
+                score = CONTRIB_SCORE
             )
     }
 

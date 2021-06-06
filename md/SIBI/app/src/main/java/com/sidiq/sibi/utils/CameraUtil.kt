@@ -8,6 +8,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
+import org.tensorflow.lite.task.vision.detector.ObjectDetector
 import java.io.File
 import java.util.concurrent.Executor
 
@@ -27,15 +28,32 @@ object CameraUtil {
     fun initVideoOutput(file: File) = VideoCapture.OutputFileOptions.Builder(file)
         .build()
 
-    fun cameraSelector(cameraProvider: ProcessCameraProvider) =
-        if (cameraProvider.hasCamera(CameraSelector.DEFAULT_FRONT_CAMERA))
-            CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
+    private val detectorOption = ObjectDetector.ObjectDetectorOptions.builder()
+        .setMaxResults(1)
+        .setScoreThreshold(CONFIDENCE_THRESHOLD)
+        .build()
+
+    fun initDetector(context: Context) = ObjectDetector.createFromFileAndOptions(
+        context,
+        MODEL_PATH,
+        detectorOption
+    )
+
+    fun cameraSelector(cameraProvider: ProcessCameraProvider, type: CameraSelector): CameraSelector {
+        val reverse = when(type){
+            CameraSelector.DEFAULT_BACK_CAMERA -> CameraSelector.DEFAULT_FRONT_CAMERA
+            else -> CameraSelector.DEFAULT_BACK_CAMERA
+        }
+        return if(cameraProvider.hasCamera(type)) type else reverse
+    }
+
 
     fun startAnalyze(ctx: Context,
                      cameraExecutor: Executor,
+                     type: CameraSelector,
                      lifecycleOwner: LifecycleOwner,
                      previewView: PreviewView,
-                     listener: RecognitionListener){
+                     listener: ObjectListener){
         val cameraProviderFuture = ProcessCameraProvider.getInstance(ctx)
 
         cameraProviderFuture.addListener({
@@ -44,12 +62,15 @@ object CameraUtil {
 
             val preview = initPreview()
 
+            val detector = initDetector(ctx)
+
             val imageAnalyzer = initAnalysis()
                 .also { analysisUseCase: ImageAnalysis ->
-                    analysisUseCase.setAnalyzer(cameraExecutor, SibiClassifier(ctx, listener))
+                    analysisUseCase.setAnalyzer(
+                        cameraExecutor, ObjectAnalyzer(ctx, detector, listener))
                 }
 
-            val cameraSelector = cameraSelector(cameraProvider)
+            val cameraSelector = cameraSelector(cameraProvider, type)
 
             try {
                 cameraProvider.unbindAll()
@@ -66,9 +87,10 @@ object CameraUtil {
     }
 
     fun startRecord(ctx: Context,
-                     lifecycleOwner: LifecycleOwner,
-                     videoCapture: VideoCapture,
-                     previewView: PreviewView){
+                    lifecycleOwner: LifecycleOwner,
+                    type: CameraSelector,
+                    videoCapture: VideoCapture,
+                    previewView: PreviewView){
 
         val cameraProviderFuture = ProcessCameraProvider.getInstance(ctx)
 
@@ -78,7 +100,7 @@ object CameraUtil {
 
             val preview = initPreview()
 
-            val cameraSelector = cameraSelector(cameraProvider)
+            val cameraSelector = cameraSelector(cameraProvider, type)
 
             try {
                 cameraProvider.unbindAll()

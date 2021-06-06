@@ -12,6 +12,7 @@ import android.text.SpannableString
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.camera.core.CameraSelector
 import androidx.camera.core.VideoCapture
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -106,7 +107,8 @@ class ContributeCameraActivity : AppCompatActivity() {
 
     private fun startCamera() {
         videoCapture = CameraUtil.initVideo()
-        CameraUtil.startRecord(this, this, videoCapture, binding.viewFinder)
+        CameraUtil.startRecord(this, this,
+            CameraSelector.DEFAULT_FRONT_CAMERA, videoCapture, binding.viewFinder)
     }
 
     private fun getMediaOutputDirectory(): File {
