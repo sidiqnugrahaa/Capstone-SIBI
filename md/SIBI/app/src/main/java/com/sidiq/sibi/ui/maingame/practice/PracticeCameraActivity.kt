@@ -71,9 +71,8 @@ class PracticeCameraActivity : AppCompatActivity() {
         grantResults: IntArray) {
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (allPermissionsGranted()) {
-                //finish()
-                //startActivity(intent)
-                startCamera()
+                finish()
+                startActivity(intent)
             } else {
                 Toast.makeText(this, "Permissions not granted by the user.", Toast.LENGTH_SHORT)
                     .show()
@@ -122,7 +121,7 @@ class PracticeCameraActivity : AppCompatActivity() {
             .load(alphabet?.icon)
             .into(binding.imageAlphabet)
 
-        binding.debugText.text = "$score - ${recognition.label}"
+        //binding.debugText.text = "$score - ${recognition.label}"
 
     }
 

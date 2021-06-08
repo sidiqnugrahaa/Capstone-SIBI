@@ -121,7 +121,7 @@ dependencies {
     implementation "com.google.android.exoplayer:exoplayer:2.14.0"
 
     //Leak Canary
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+    /debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 
 
 }

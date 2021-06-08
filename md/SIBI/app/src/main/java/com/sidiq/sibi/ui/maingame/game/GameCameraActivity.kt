@@ -78,9 +78,8 @@ class GameCameraActivity : AppCompatActivity() {
                                             grantResults: IntArray) {
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (allPermissionsGranted()) {
-                //finish()
-                //startActivity(intent)
-                startCamera()
+                finish()
+                startActivity(intent)
             } else {
                 Toast.makeText(this, "Permissions not granted by the user.", Toast.LENGTH_SHORT)
                     .show()
@@ -127,7 +126,6 @@ class GameCameraActivity : AppCompatActivity() {
             }
         }
         binding.predictedTextView.text = spannedWord
-        binding.debugText.text = "$index - ${recognition.label}"
     }
 
     private fun allPermissionsGranted(): Boolean {
