@@ -1,7 +1,10 @@
-# Capstone-SIBI
-Capstone Project SIBI (Sistem Pengenala Bahasa Isyarat)
+# fun-bi
 
 -- *Fun way to learn Indonesian Sign Language* --
+
+## Description
+
+fun-bi is a game-based sign language learning android application that can help users in learning sign language (SIBI) in a fun way
 
 ## Features
 
