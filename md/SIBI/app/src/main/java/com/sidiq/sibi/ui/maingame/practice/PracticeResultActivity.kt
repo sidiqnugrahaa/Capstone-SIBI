@@ -1,16 +1,15 @@
 package com.sidiq.sibi.ui.maingame.practice
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.sidiq.sibi.data.wrapper.Result
 import com.sidiq.sibi.databinding.ActivityPracticeResultBinding
 import com.sidiq.sibi.domain.model.AuthUser.Companion.toDomain
 import com.sidiq.sibi.ui.FirebaseAuthViewModel
 import com.sidiq.sibi.ui.maingame.GameViewModel
-import com.sidiq.sibi.ui.maingame.game.GameResultActivity
 import com.sidiq.sibi.utils.SCORE_MULTIPLIER
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi

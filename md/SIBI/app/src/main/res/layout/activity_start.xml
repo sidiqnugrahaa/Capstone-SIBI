@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/background_start"
             android:scaleType="fitXY"
-            android:contentDescription="Background" />
+            android:contentDescription="@string/background" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
             android:drawableStart="@drawable/ic_google"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:text="   Masuk dengan Google"
+            android:text="@string/masuk_dengan_google"
             android:textAllCaps="false"
             android:textColor="@color/dark_blue"
             android:textSize="14sp"

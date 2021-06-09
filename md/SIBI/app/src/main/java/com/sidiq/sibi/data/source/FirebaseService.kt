@@ -7,10 +7,8 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
-import com.sidiq.sibi.data.wrapper.Resource
 import com.sidiq.sibi.data.wrapper.Result
 import com.sidiq.sibi.domain.model.AuthUser
-import com.sidiq.sibi.domain.model.AuthUser.Companion.toUser
 import com.sidiq.sibi.utils.COLLECTION_USER
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -32,9 +30,9 @@ class FirebaseService @Inject constructor(
         }
     }
 
-    suspend fun checkUserAuth(): FirebaseUser? = auth.currentUser
+    fun checkUserAuth(): FirebaseUser? = auth.currentUser
 
-    suspend fun logout() = auth.signOut()
+    fun logout() = auth.signOut()
 
     suspend fun signInWithCredential(authCredential: AuthCredential): Result<AuthResult?> {
         return try{

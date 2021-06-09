@@ -9,11 +9,7 @@ import com.sidiq.sibi.domain.model.AuthUser.Companion.toUser
 import com.sidiq.sibi.domain.model.History
 import com.sidiq.sibi.domain.model.History.Companion.toHistory
 import com.sidiq.sibi.utils.*
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import javax.inject.Singleton

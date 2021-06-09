@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/bg_mainmenu"
@@ -23,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Kontribusi"
+            android:text="@string/kontribusi"
             android:textStyle="bold"
             android:textColor="@color/dark_blue"
             android:textSize="24sp"/>
@@ -34,7 +33,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:gravity="center"
-            android:text="Kontribusi anda akan membantu pengembangan aplikasi ini untuk terus menebarkan kebermanfaatan!"
+            android:text="@string/kontribusi_anda_akan_membantu_pengembangan_aplikasi_ini_untuk_terus_menebarkan_kebermanfaatan"
             android:textColor="@color/dark_blue"
             android:textSize="16sp"/>
 
@@ -49,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="1. Ikuti gerakan pada video berikut!"
+                android:text="@string/_1_ikuti_gerakan_pada_video_berikut"
                 android:textColor="@color/dark_blue"
                 android:textSize="16sp"/>
 
@@ -80,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="2. Ambil video gerakanmu!"
+                android:text="@string/_2_ambil_video_gerakanmu"
                 android:textColor="@color/dark_blue"
                 android:textSize="16sp"/>
 
@@ -93,7 +92,7 @@
                 android:background="@drawable/fill_round_orange"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:text="Ambil Video"
+                android:text="@string/ambil_video"
                 android:textAllCaps="false"
                 android:textColor="#FFF"
                 android:textSize="16sp"

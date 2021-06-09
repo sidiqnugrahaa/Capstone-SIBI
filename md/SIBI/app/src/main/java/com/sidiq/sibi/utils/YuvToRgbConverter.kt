@@ -30,7 +30,7 @@ import com.sidiq.sibi.BuildConfig
 import java.nio.ByteBuffer
 
 /**
- * Helper class used to efficiently convert a [Media.Image] object from
+ * Helper class used to efficiently convert a [Media Image] object from
  * [ImageFormat.YUV_420_888] format to an RGB [Bitmap] object.
  *
  * The [yuvToRgb] method is able to achieve the same FPS as the CameraX image

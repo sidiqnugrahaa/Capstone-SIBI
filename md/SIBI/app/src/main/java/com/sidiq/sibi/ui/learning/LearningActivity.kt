@@ -1,6 +1,5 @@
 package com.sidiq.sibi.ui.learning
 
-import LearningAdapter
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -25,20 +24,18 @@ class LearningActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerList() {
-        with(binding) {
-            rvIcon.setHasFixedSize(true)
-            rvIcon.layoutManager = GridLayoutManager(this@LearningActivity, 4)
-            val adapter = LearningAdapter(list)
-            rvIcon.adapter = adapter
-            adapter.setOnItemClickCallback(object : LearningAdapter.OnItemClickCallback {
-                override fun onItemClicked(data: Alphabet) {
-                    Intent(this@LearningActivity, LearningDetailActivity::class.java).also {
-                        it.putExtra(LearningDetailActivity.EXTRA_IMG, data.icon)
-                        it.putExtra(LearningDetailActivity.EXTRA_URL, data.video_url)
-                        startActivity(it)
-                    }
+        binding.rvIcon.setHasFixedSize(true)
+        binding.rvIcon.layoutManager = GridLayoutManager(this@LearningActivity, 4)
+        val adapter = LearningAdapter(list)
+        binding.rvIcon.adapter = adapter
+        adapter.setOnItemClickCallback(object : LearningAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Alphabet) {
+                Intent(this@LearningActivity, LearningDetailActivity::class.java).also {
+                    it.putExtra(LearningDetailActivity.EXTRA_IMG, data.icon)
+                    it.putExtra(LearningDetailActivity.EXTRA_URL, data.video_url)
+                    startActivity(it)
                 }
-            })
-        }
+            }
+        })
     }
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/bg_mainmenu"
@@ -43,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Jesslyn"
+                    tools:text="Jesslyn"
                     android:textColor="@color/dark_blue"
                     android:textSize="18sp" />
 
@@ -52,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="jesslyn@gmail.com"
+                    tools:text="jesslyn@gmail.com"
                     android:textColor="@color/dark_blue"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -71,13 +72,14 @@
             <ImageView
                 android:layout_width="42dp"
                 android:layout_height="42dp"
-                android:src="@drawable/ic_history" />
+                android:src="@drawable/ic_history"
+                android:contentDescription="@string/content_description" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Riwayat Permainan"
+                    android:text="@string/riwayat_permainan"
                     android:textColor="@color/dark_blue"
                     android:textSize="18sp" />
 
@@ -95,13 +97,14 @@
             <ImageView
                 android:layout_width="42dp"
                 android:layout_height="42dp"
-                android:src="@drawable/ic_contribution" />
+                android:src="@drawable/ic_contribution"
+                android:contentDescription="@string/content_description" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Kontribusi anda"
+                android:text="@string/kontribusi_anda"
                 android:textColor="@color/dark_blue"
                 android:textSize="18sp" />
 
@@ -119,13 +122,14 @@
             <ImageView
                 android:layout_width="42dp"
                 android:layout_height="42dp"
-                android:src="@drawable/ic_info" />
+                android:src="@drawable/ic_info"
+                android:contentDescription="@string/content_description" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Tentang kami"
+                android:text="@string/tentang_kami"
                 android:textColor="@color/dark_blue"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -137,7 +141,7 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/fill_round_button"
             android:padding="4dp"
-            android:text="Keluar"
+            android:text="@string/keluar"
             android:textAllCaps="false"
             android:textColor="#FFF"
             android:textSize="16sp"

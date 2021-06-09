@@ -16,30 +16,27 @@
 
 package com.sidiq.sibi.ui.maingame
 
-import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.Timestamp
 import com.sidiq.sibi.data.LeaderboardRepository
+import com.sidiq.sibi.data.wrapper.Result
 import com.sidiq.sibi.domain.model.History
-import com.sidiq.sibi.utils.SingleEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import org.tensorflow.lite.support.label.Category
-import javax.inject.Inject
-import com.sidiq.sibi.data.wrapper.Result
 import org.tensorflow.lite.task.vision.detector.Detection
+import javax.inject.Inject
 
 data class Recognition(val label:String, val confidence:Float) {
 
     override fun toString():String{
         return "$label / $probabilityString"
     }
-    val probabilityString = String.format("%.1f%%", confidence * 100.0f)
+    private val probabilityString = String.format("%.1f%%", confidence * 100.0f)
 
     companion object {
 
@@ -54,8 +51,6 @@ data class Recognition(val label:String, val confidence:Float) {
             }
         }
 
-        fun Category.toLabel() : Recognition =
-            Recognition(label, score)
     }
 
 }
@@ -69,9 +64,6 @@ class GameViewModel @Inject constructor(
 
     private val _spinner = MutableLiveData(false)
     val spinner : LiveData<Boolean> get() = _spinner
-
-    private val _navigate = MutableLiveData<SingleEvent<Int>>()
-    val navigate : LiveData<SingleEvent<Int>> get() = _navigate
 
     private val _recognition = MutableLiveData<Recognition>()
     val recognition: LiveData<Recognition> = _recognition

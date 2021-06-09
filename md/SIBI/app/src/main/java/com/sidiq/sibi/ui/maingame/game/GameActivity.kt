@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.sidiq.sibi.data.wrapper.Resource
 import com.sidiq.sibi.databinding.ActivityGameBinding
 import com.sidiq.sibi.ui.FunctionViewModel
-import com.sidiq.sibi.ui.contribute.ContributeCameraActivity
-import com.sidiq.sibi.ui.maingame.practice.PracticeCameraActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

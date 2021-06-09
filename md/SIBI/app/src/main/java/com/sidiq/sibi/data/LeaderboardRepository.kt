@@ -5,13 +5,12 @@ import com.sidiq.sibi.data.wrapper.Resource
 import com.sidiq.sibi.domain.model.AuthUser
 import com.sidiq.sibi.domain.model.History
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 import javax.inject.Singleton
-import com.sidiq.sibi.data.wrapper.Result
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @Singleton
 class LeaderboardRepository @Inject constructor(

@@ -50,7 +50,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_finder"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.8"
+        android:contentDescription="@string/content_description" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

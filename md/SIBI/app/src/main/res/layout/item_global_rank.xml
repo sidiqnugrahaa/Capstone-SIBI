@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/avatar_user"
+        android:layout_toEndOf="@+id/avatar_user"
         tools:text="Dimas Anom Priyayi A2229074"
         android:layout_marginStart="16dp"
         android:textColor="@color/dark_blue"
@@ -43,7 +43,8 @@
         android:layout_centerInParent="true"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:text="1800"/>
+        tools:text="1800"
+        tools:ignore="RelativeOverlap" />
 
 
 </RelativeLayout>

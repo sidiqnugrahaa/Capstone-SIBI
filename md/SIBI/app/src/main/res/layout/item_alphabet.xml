@@ -12,6 +12,7 @@
         android:id="@+id/alphabet_icon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/alphabet_a"/>
+        android:src="@drawable/alphabet_a"
+        android:contentDescription="@string/content_description" />
 
 </LinearLayout>

@@ -2,7 +2,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
@@ -34,10 +33,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerInParent="true"
-                android:text="Medali"
+                android:text="@string/medali"
                 android:textColor="@color/dark_blue"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
 
             <TextView
                 android:id="@+id/tv_score"
@@ -45,10 +45,11 @@
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@id/ic_score"
                 android:layout_marginEnd="8dp"
-                android:text="10"
+                android:text="@string/_10"
                 android:textColor="@color/dark_blue"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
 
             <ImageView
                 android:id="@+id/ic_score"
@@ -56,7 +57,8 @@
                 android:layout_height="32dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
-                android:src="@drawable/ic_myrecord" />
+                android:src="@drawable/ic_myrecord"
+                android:contentDescription="@string/content_description" />
         </RelativeLayout>
 
         <LinearLayout
@@ -71,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Peragakan kata dibawah ini!"
+                android:text="@string/peragakan_kata_dibawah_ini"
                 android:textColor="@color/dark_blue"
                 android:textSize="16sp"/>
 
@@ -108,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Arahkan kamera ke tanganmu"
+                android:text="@string/arahkan_kamera_ke_tanganmu"
                 android:textColor="@color/dark_blue"
                 android:textSize="16sp"/>
             <!-- add camera view-->
@@ -121,7 +123,7 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/fill_round_orange"
             android:padding="4dp"
-            android:text="Mulai"
+            android:text="@string/mulai"
             android:textAllCaps="false"
             android:textColor="#FFF"
             android:textSize="16sp"

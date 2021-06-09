@@ -2,7 +2,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
@@ -24,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Ayo berlatih!"
+            android:text="@string/ayo_berlatih"
             android:textStyle="bold"
             android:textColor="@color/dark_blue"
             android:textSize="24sp"/>
@@ -35,7 +34,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:gravity="center"
-            android:text="Peragakan gerakan yang tepat sesuai dengan huruf yang diminta ya."
+            android:text="@string/peragakan_gerakan_yang_tepat_sesuai_dengan_huruf_yang_diminta_ya"
             android:textColor="@color/dark_blue"
             android:textSize="16sp"/>
 
@@ -50,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Peragakan huruf dibawah ini!"
+                android:text="@string/peragakan_huruf_dibawah_ini"
                 android:textColor="@color/dark_blue"
                 android:textSize="16sp"/>
 
@@ -60,7 +59,7 @@
                 android:layout_height="88dp"
                 android:layout_gravity="center_horizontal"
                 tools:src="@drawable/alphabet_a"
-                />
+                android:contentDescription="@string/content_description" />
 
         </LinearLayout>
 
@@ -75,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Arahkan kamera ke tanganmu"
+                android:text="@string/arahkan_kamera_ke_tanganmu"
                 android:textColor="@color/dark_blue"
                 android:textSize="16sp"/>
             <!-- add camera view-->
@@ -88,7 +87,7 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/fill_round_orange"
             android:padding="4dp"
-            android:text="Mulai"
+            android:text="@string/mulai"
             android:textAllCaps="false"
             android:textColor="#FFF"
             android:textSize="16sp"

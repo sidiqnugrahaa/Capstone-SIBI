@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sidiq.sibi.R
 import com.sidiq.sibi.data.wrapper.Resource
 import com.sidiq.sibi.databinding.FragmentGlobalrankBinding
-import com.sidiq.sibi.databinding.FragmentMyrecordBinding
 import com.sidiq.sibi.ui.leaderboard.LeaderBoardViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,7 +54,7 @@ class RankFragment  : Fragment() {
                         binding.loading.visibility = View.GONE
                         binding.viewEmpty.apply {
                             visibility = View.VISIBLE
-                            text = "Data Kosong"
+                            text = resources.getText(R.string.data_kosong)
                         }
                     }
 
@@ -62,7 +62,7 @@ class RankFragment  : Fragment() {
                         binding.loading.visibility = View.GONE
                         binding.viewEmpty.apply {
                             visibility = View.VISIBLE
-                            text = "Error Mengambil Data"
+                            text = resources.getText(R.string.error_mengambil_data)
                         }
                         Log.d("STATUS", it.throwable.message!!)
                     }

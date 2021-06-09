@@ -13,7 +13,7 @@ import java.io.File
 import java.util.concurrent.Executor
 
 object CameraUtil {
-    private val TAG = "CameraUtil"
+    private const val TAG = "CameraUtil"
 
     private fun initPreview() = Preview.Builder()
         .build()
@@ -33,7 +33,7 @@ object CameraUtil {
         .setScoreThreshold(CONFIDENCE_THRESHOLD)
         .build()
 
-    fun initDetector(context: Context) = ObjectDetector.createFromFileAndOptions(
+    private fun initDetector(context: Context): ObjectDetector = ObjectDetector.createFromFileAndOptions(
         context,
         MODEL_PATH,
         detectorOption

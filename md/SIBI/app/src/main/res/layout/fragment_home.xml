@@ -2,7 +2,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
@@ -62,7 +61,7 @@
                     android:layout_gravity="center_vertical"
                     android:textStyle="bold"
                     android:textSize="14sp"
-                    android:text="Siap belajar bahasa isyarat dengan cara yang menyenangkan?"/>
+                    android:text="@string/siap_belajar_bahasa_isyarat_dengan_cara_yang_menyenangkan"/>
 
                 <ImageView
                     android:layout_width="148dp"
@@ -95,17 +94,19 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
-                    android:text="Belajar Yuk!"
+                    android:text="@string/belajar_yuk"
                     android:textColor="@color/dark_blue"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="RelativeOverlap" />
 
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="16dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/ic_right_arrow" />
+                    android:src="@drawable/ic_right_arrow"
+                    android:contentDescription="@string/content_description" />
             </RelativeLayout>
 
             <LinearLayout
@@ -113,7 +114,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:id="@+id/learn_alphabet"
@@ -130,12 +132,13 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/ic_alphabet" />
+                        android:src="@drawable/ic_alphabet"
+                        android:contentDescription="@string/content_description" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Alphabet"
+                        android:text="@string/alphabet"
                         android:textColor="@color/dark_blue"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -158,12 +161,13 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/ic_word" />
+                        android:src="@drawable/ic_word"
+                        android:contentDescription="@string/content_description" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kata - Kata Dasar"
+                        android:text="@string/kata_kata_dasar"
                         android:textColor="@color/dark_blue"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -193,17 +197,19 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
-                    android:text="Asah Kemampuanmu!"
+                    android:text="@string/asah_kemampuanmu"
                     android:textColor="@color/dark_blue"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="RelativeOverlap" />
 
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="16dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/ic_right_arrow" />
+                    android:src="@drawable/ic_right_arrow"
+                    android:contentDescription="@string/content_description" />
             </RelativeLayout>
 
             <LinearLayout
@@ -211,7 +217,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:id="@+id/practice"
@@ -228,12 +235,13 @@
                         android:layout_width="48dp"
                         android:layout_height="60dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/ic_practice" />
+                        android:src="@drawable/ic_practice"
+                        android:contentDescription="@string/content_description" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Berlatih"
+                        android:text="@string/berlatih"
                         android:textColor="@color/dark_blue"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -256,12 +264,13 @@
                         android:layout_width="48dp"
                         android:layout_height="60dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/ic_game" />
+                        android:src="@drawable/ic_game"
+                        android:contentDescription="@string/content_description" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bermain"
+                        android:text="@string/bermain"
                         android:textColor="@color/dark_blue"
                         android:textSize="16sp"
                         android:textStyle="bold" />

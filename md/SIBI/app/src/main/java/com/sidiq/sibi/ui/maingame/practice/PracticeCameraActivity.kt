@@ -12,6 +12,7 @@ import androidx.camera.core.CameraSelector
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.sidiq.sibi.R
 import com.sidiq.sibi.databinding.ActivityPracticeCameraBinding
 import com.sidiq.sibi.domain.model.Alphabet
 import com.sidiq.sibi.domain.model.LearningData
@@ -29,8 +30,8 @@ class PracticeCameraActivity : AppCompatActivity() {
         const val EXTRA_ALPHABET = "alphabet"
     }
 
-    private val REQUEST_CODE_PERMISSIONS = 101
-    private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+    private val requestCodePermission = 101
+    private val requiredPermission = arrayOf(Manifest.permission.CAMERA)
 
 
     private val binding: ActivityPracticeCameraBinding by lazy {
@@ -54,7 +55,7 @@ class PracticeCameraActivity : AppCompatActivity() {
         if (allPermissionsGranted()) {
             startCamera()
         } else {
-            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
+            ActivityCompat.requestPermissions(this, requiredPermission, requestCodePermission)
         }
 
         alphabet = intent.getParcelableExtra(EXTRA_ALPHABET)!!
@@ -69,7 +70,7 @@ class PracticeCameraActivity : AppCompatActivity() {
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
         grantResults: IntArray) {
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+        if (requestCode == requestCodePermission) {
             if (allPermissionsGranted()) {
                 finish()
                 startActivity(intent)
@@ -130,11 +131,13 @@ class PracticeCameraActivity : AppCompatActivity() {
         return object : CountDownTimer(seconds*1000, 1000) {
             override fun onTick(miliFinished: Long) {
                 remainingTime = miliFinished/1000
-                binding.timer.text = "Sisa Waktu: ${miliFinished / 1000}"
+                binding.timer.text = resources.getText(R.string.sisa_waktu,
+                    remainingTime.toString()
+                )
             }
 
             override fun onFinish() {
-                binding.timer.text = "Waktu Habis"
+                binding.timer.text = resources.getText(R.string.waktu_habis)
                 gotoResult(score)
             }
         }
@@ -143,7 +146,7 @@ class PracticeCameraActivity : AppCompatActivity() {
 
     private fun allPermissionsGranted(): Boolean {
 
-        for (permission in REQUIRED_PERMISSIONS) {
+        for (permission in requiredPermission) {
             if (ContextCompat.checkSelfPermission(
                     this,
                     permission
