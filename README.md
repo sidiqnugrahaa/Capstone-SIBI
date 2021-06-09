@@ -40,3 +40,16 @@ In Addition to MVVM, The specific architecture representing ML - Android - Cloud
 ![Android-ML Architecture](https://i.ibb.co/xqD6PSc/android-ml.png)
 - Android - Cloud Architecture
 ![Android-Cloud Architecture](https://i.ibb.co/Z2Tvgyw/cloud-android.png)
+
+
+## Installation
+
+## Installation
+
+1. Clone the repository
+		 
+		 $ git clone https://github.com/sidiqnugrahaa/Capstone-SIBI.git
+2. To See The Latest Notebook Please Run:
+
+		 $ jupyter notebook {path}/Capstone-SIBI/ml/IPYNB/notebook.ipynb
+3. To Open Android Project, Run Android Studio And Navigate To {path}/Capstone-SIBI/md/SIBI
