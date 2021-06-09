@@ -2,18 +2,15 @@ package com.sidiq.sibi.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.*
-import android.media.Image
+import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.util.Log
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.sidiq.sibi.ui.maingame.Recognition
 import com.sidiq.sibi.ui.maingame.Recognition.Companion.toRecognition
 import org.tensorflow.lite.support.image.TensorImage
-import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
-import java.io.ByteArrayOutputStream
-import java.nio.ByteBuffer
 
 typealias ObjectListener = (recognition: Recognition) -> Unit
 

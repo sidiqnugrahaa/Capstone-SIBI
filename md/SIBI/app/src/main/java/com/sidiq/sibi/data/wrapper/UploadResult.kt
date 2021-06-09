@@ -1,6 +1,5 @@
 package com.sidiq.sibi.data.wrapper
 
-import android.net.Uri
 import com.google.firebase.storage.UploadTask
 
 sealed class UploadResult {

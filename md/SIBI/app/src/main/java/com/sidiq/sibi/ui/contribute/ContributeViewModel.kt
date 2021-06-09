@@ -1,15 +1,14 @@
 package com.sidiq.sibi.ui.contribute
 
-import androidx.lifecycle.*
-import com.google.firebase.Timestamp
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.sidiq.sibi.data.StorageRepository
-import com.sidiq.sibi.data.wrapper.Result
 import com.sidiq.sibi.data.wrapper.UploadResult
-import com.sidiq.sibi.domain.model.History
 import com.sidiq.sibi.domain.model.Word
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

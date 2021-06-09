@@ -13,6 +13,7 @@ import androidx.activity.viewModels
 import androidx.camera.core.CameraSelector
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.sidiq.sibi.R
 import com.sidiq.sibi.databinding.ActivityGameCameraBinding
 import com.sidiq.sibi.ui.maingame.GameViewModel
 import com.sidiq.sibi.ui.maingame.Recognition
@@ -29,8 +30,8 @@ class GameCameraActivity : AppCompatActivity() {
         const val EXTRA_WORD = "word"
     }
 
-    private val REQUEST_CODE_PERMISSIONS = 101
-    private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+    private val requestCodePermission = 101
+    private val requiredPermission = arrayOf(Manifest.permission.CAMERA)
 
     private val binding: ActivityGameCameraBinding by lazy {
         ActivityGameCameraBinding.inflate(layoutInflater)
@@ -53,7 +54,7 @@ class GameCameraActivity : AppCompatActivity() {
         if (allPermissionsGranted()) {
             startCamera()
         } else {
-            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
+            ActivityCompat.requestPermissions(this, requiredPermission, requestCodePermission)
         }
 
         word = intent.getStringExtra(EXTRA_WORD)!!
@@ -61,7 +62,7 @@ class GameCameraActivity : AppCompatActivity() {
 
         timer = GameTimer(TIME_GAME).apply {
             onTick = {
-                binding.timer.text = "Sisa Waktu: $it"
+                binding.timer.text = resources.getString(R.string.sisa_waktu, it)
             }
             onFinish = {
                 gotoResult(index)
@@ -76,11 +77,10 @@ class GameCameraActivity : AppCompatActivity() {
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
                                             grantResults: IntArray) {
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+        if (requestCode == requestCodePermission) {
             if (allPermissionsGranted()) {
-                //finish()
-                //startActivity(intent)
-                startCamera()
+                finish()
+                startActivity(intent)
             } else {
                 Toast.makeText(this, "Permissions not granted by the user.", Toast.LENGTH_SHORT)
                     .show()
@@ -127,12 +127,11 @@ class GameCameraActivity : AppCompatActivity() {
             }
         }
         binding.predictedTextView.text = spannedWord
-        binding.debugText.text = "$index - ${recognition.label}"
     }
 
     private fun allPermissionsGranted(): Boolean {
 
-        for (permission in REQUIRED_PERMISSIONS) {
+        for (permission in requiredPermission) {
             if (ContextCompat.checkSelfPermission(
                     this,
                     permission

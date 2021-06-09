@@ -5,13 +5,12 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.text.SpannableString
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.VideoCapture
 import androidx.core.app.ActivityCompat
@@ -25,7 +24,6 @@ import com.sidiq.sibi.ui.maingame.game.GameCameraActivity
 import com.sidiq.sibi.utils.CameraUtil
 import com.sidiq.sibi.utils.GameTimer
 import com.sidiq.sibi.utils.TIME_CONTRIB
-import com.sidiq.sibi.utils.TIME_GAME
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import java.text.SimpleDateFormat
@@ -42,8 +40,8 @@ class ContributeCameraActivity : AppCompatActivity() {
     private val binding: ActivityContributeCameraBinding by lazy {
         ActivityContributeCameraBinding.inflate(layoutInflater)
     }
-    private val REQUEST_CODE_PERMISSIONS = 101
-    private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA,
+    private val requestCodePermission = 101
+    private val requiredPermission = arrayOf(Manifest.permission.CAMERA,
         Manifest.permission.RECORD_AUDIO)
 
     private val cameraExecutor = Executors.newSingleThreadExecutor()
@@ -75,7 +73,7 @@ class ContributeCameraActivity : AppCompatActivity() {
                 startRecording()
             }
         } else {
-            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
+            ActivityCompat.requestPermissions(this, requiredPermission, requestCodePermission)
         }
 
         word = intent.getParcelableExtra(GameCameraActivity.EXTRA_WORD)!!
@@ -84,7 +82,7 @@ class ContributeCameraActivity : AppCompatActivity() {
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
                                             grantResults: IntArray) {
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+        if (requestCode == requestCodePermission) {
             if (allPermissionsGranted()) {
                 outputDirectory = getMediaOutputDirectory()
 
@@ -162,7 +160,7 @@ class ContributeCameraActivity : AppCompatActivity() {
 
     private fun allPermissionsGranted(): Boolean {
 
-        for (permission in REQUIRED_PERMISSIONS) {
+        for (permission in requiredPermission) {
             if (ContextCompat.checkSelfPermission(
                     this,
                     permission

@@ -1,11 +1,10 @@
 package com.sidiq.sibi.ui.start
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.sidiq.sibi.R
+import androidx.appcompat.app.AppCompatActivity
 import com.sidiq.sibi.databinding.ActivityStartBinding
 import com.sidiq.sibi.ui.FirebaseAuthViewModel
 import dagger.hilt.android.AndroidEntryPoint

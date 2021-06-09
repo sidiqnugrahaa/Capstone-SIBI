@@ -38,8 +38,16 @@ class StorageService @Inject constructor(
                     word.contrib!!.fileUri = uri.toString()
                     insertWord(word).addOnSuccessListener {
                         insertHistory(word).addOnSuccessListener {
-                            offer(UploadResult.Complete.Success)
-                            close()
+                            firestore.collection(COLLECTION_USER)
+                                .document(word.contrib!!.userId).get().addOnSuccessListener { a ->
+                                    val score = a.getLong("score")
+                                    firestore.collection(COLLECTION_USER)
+                                        .document(word.contrib!!.userId).update("score", score?.plus(100))
+                                        .addOnSuccessListener {
+                                            offer(UploadResult.Complete.Success)
+                                            close()
+                                        }
+                                }
                         }
                     }
                 }

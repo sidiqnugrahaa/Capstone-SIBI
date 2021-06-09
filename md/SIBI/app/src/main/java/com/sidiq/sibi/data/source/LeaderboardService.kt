@@ -9,7 +9,6 @@ import com.sidiq.sibi.domain.model.AuthUser.Companion.toUser
 import com.sidiq.sibi.domain.model.History
 import com.sidiq.sibi.domain.model.History.Companion.toHistory
 import com.sidiq.sibi.utils.*
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -21,26 +20,49 @@ import javax.inject.Singleton
 @Singleton
 class LeaderboardService @Inject constructor(private val firestore: FirebaseFirestore) {
 
-    suspend fun getGlobalRank(): Resource<List<AuthUser>> {
+    @ExperimentalCoroutinesApi
+    suspend fun getGlobalRank(): Flow<Resource<List<AuthUser>>> = callbackFlow {
         val results = firestore.collection(COLLECTION_USER)
             .orderBy(FIELD_SCORE, Query.Direction.DESCENDING)
             .limit(LIMIT_RANK)
-            .get().await().toUser()
-            ?: return Resource.Empty()
-        return if(results.isEmpty()) Resource.Empty() else Resource.Success(results)
+
+        val subscribe = results.addSnapshotListener { snapshot, _ ->
+            if (snapshot == null || snapshot.isEmpty) {
+                offer(Resource.Empty<Nothing>())
+            }else{
+                offer(Resource.Success(snapshot.toUser()!!))
+            }
+        }
+
+        awaitClose { subscribe.remove() }
     }
 
-    suspend fun getHistory(userId: String): Resource<List<History>> {
+
+    @ExperimentalCoroutinesApi
+    suspend fun getHistory(userId: String): Flow<Resource<List<History>>> = callbackFlow {
         val results = firestore.collection(COLLECTION_USER)
             .document(userId).collection(COLLECTION_HISTORY)
             .orderBy(FIELD_TIMESTAMP, Query.Direction.DESCENDING)
-            .get().await().toHistory()
-            ?: return Resource.Empty()
-        return if(results.isEmpty()) Resource.Empty() else Resource.Success(results)
+
+        val subscribe = results.addSnapshotListener { snapshot, _ ->
+            if (snapshot == null || snapshot.isEmpty) {
+                offer(Resource.Empty<Nothing>())
+            }else{
+                offer(Resource.Success(snapshot.toHistory()!!))
+            }
+        }
+
+        awaitClose { subscribe.remove() }
     }
+
+
 
     @ExperimentalCoroutinesApi
     suspend fun insertHistory(userId: String, history: History): Result<Void> = try {
+        val score = firestore.collection(COLLECTION_USER)
+            .document(userId).get().await().getLong("score")
+        val userResult = firestore.collection(COLLECTION_USER)
+            .document(userId).update("score", score?.plus(history.score!!)).await()
         val result = firestore.collection(COLLECTION_USER).document(userId)
             .collection(COLLECTION_HISTORY).document().set(history).await()
         Result.Success(result)

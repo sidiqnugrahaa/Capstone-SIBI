@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.contribute.ContributeResultActivity"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".ui.contribute.ContributeResultActivity">
 
     <ImageView
         android:id="@+id/bg_mainmenu"
@@ -25,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Terima kasih!"
+            android:text="@string/terima_kasih"
             android:textStyle="bold"
             android:textColor="@color/dark_blue"
             android:textSize="24sp"/>
@@ -36,7 +35,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:gravity="center"
-            android:text="Kamu Telah Berkontribusi Dengan Menambah Dataset."
+            android:text="@string/contrib_message"
             android:textColor="@color/dark_blue"
             android:textSize="16sp"/>
 
@@ -51,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Score yang kamu dapatkan sebesar"
+                android:text="@string/poin_yang_kamu_berhasil_dapatkan_adalah"
                 android:textColor="@color/dark_blue"
                 android:textSize="16sp"/>
 
@@ -60,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="100"
+                android:text="@string/_100"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/orange"
                 android:textSize="40sp"/>
@@ -69,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Poin"
+                android:text="@string/poin"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/dark_blue"
                 android:textSize="16sp"/>
@@ -95,7 +94,7 @@
             android:paddingEnd="16dp"
             android:background="@drawable/fill_round_button"
             android:padding="4dp"
-            android:text="Back to home"
+            android:text="@string/back_to_home"
             android:textAllCaps="false"
             android:textColor="#FFF"
             android:textSize="16sp"

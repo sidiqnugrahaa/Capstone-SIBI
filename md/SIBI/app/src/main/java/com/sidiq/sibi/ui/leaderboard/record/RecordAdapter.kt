@@ -3,10 +3,7 @@ package com.sidiq.sibi.ui.leaderboard.record
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.sidiq.sibi.databinding.ItemGlobalRankBinding
 import com.sidiq.sibi.databinding.ItemMyRecordBinding
-import com.sidiq.sibi.domain.model.AuthUser
 import com.sidiq.sibi.domain.model.History
 
 class RecordAdapter(
@@ -34,10 +31,8 @@ class RecordAdapter(
         private val binding: ItemMyRecordBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(history: History){
-            with(binding){
-                timestamp.text = history.type
-                score.text = "${history.score}"
-            }
+            binding.type.text = history.type
+            binding.score.text = "${history.score}"
         }
     }
 
