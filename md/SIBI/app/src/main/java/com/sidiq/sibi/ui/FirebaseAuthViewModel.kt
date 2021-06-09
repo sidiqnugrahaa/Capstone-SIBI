@@ -15,7 +15,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.sidiq.sibi.R
 import com.sidiq.sibi.data.UserRepository
@@ -41,12 +40,12 @@ class FirebaseAuthViewModel @Inject constructor(private val repository: UserRepo
 
 // ------------------------------------------------------------------
 
-    fun checkUserLoggedIn(): FirebaseUser? {
-        var firebaseUser: FirebaseUser? = null
+    fun checkUserLogin(): AuthUser? {
+        var authUser: AuthUser? = null
         viewModelScope.launch {
-            firebaseUser = repository.checkUserAuth()
+            authUser = repository.checkUserAuth()
         }
-        return firebaseUser
+        return authUser
     }
 
     fun logout() = viewModelScope.launch { repository.logout() }

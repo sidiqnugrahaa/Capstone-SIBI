@@ -8,7 +8,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.sidiq.sibi.data.wrapper.UploadResult
 import com.sidiq.sibi.databinding.ActivityContributeResultBinding
-import com.sidiq.sibi.domain.model.AuthUser.Companion.toDomain
 import com.sidiq.sibi.domain.model.Word
 import com.sidiq.sibi.ui.FirebaseAuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,7 +34,7 @@ class ContributeResultActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         word = intent.getParcelableExtra(EXTRA_CONTRIB)!!
-        val userId = authViewModel.checkUserLoggedIn()!!.toDomain()!!.userId
+        val userId = authViewModel.checkUserLogin()!!.userId
         word.contrib!!.userId = userId
 
         contributeViewModel.insertContrib(word)

@@ -5,10 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.google.firebase.auth.FirebaseUser
 import com.sidiq.sibi.R
 import com.sidiq.sibi.SibiApp
-import com.sidiq.sibi.domain.model.AuthUser.Companion.toDomain
+import com.sidiq.sibi.domain.model.AuthUser
 import com.sidiq.sibi.ui.FirebaseAuthViewModel
 import com.sidiq.sibi.ui.MainActivity
 import com.sidiq.sibi.ui.start.StartActivity
@@ -22,7 +21,7 @@ import kotlinx.coroutines.launch
 class SplashActivity : AppCompatActivity() {
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
     private val viewModel : FirebaseAuthViewModel by viewModels()
-    private var currentUser : FirebaseUser? = null
+    private var currentUser : AuthUser? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +30,12 @@ class SplashActivity : AppCompatActivity() {
         coroutineScope.launch {
 
             delay(2000)
-            currentUser = viewModel.checkUserLoggedIn()
+            currentUser = viewModel.checkUserLogin()
 
             when(currentUser) {
                 null -> gotoActivity(StartActivity())
                 else -> {
-                    (application as SibiApp).authUser = currentUser!!.toDomain()
+                    (application as SibiApp).authUser = currentUser!!
                     gotoActivity(MainActivity())
                 }
             }

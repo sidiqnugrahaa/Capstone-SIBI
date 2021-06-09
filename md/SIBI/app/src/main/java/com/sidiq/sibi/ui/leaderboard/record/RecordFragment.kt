@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sidiq.sibi.R
 import com.sidiq.sibi.data.wrapper.Resource
 import com.sidiq.sibi.databinding.FragmentMyrecordBinding
-import com.sidiq.sibi.domain.model.AuthUser.Companion.toDomain
 import com.sidiq.sibi.ui.FirebaseAuthViewModel
 import com.sidiq.sibi.ui.leaderboard.LeaderBoardViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @AndroidEntryPoint
 class RecordFragment  : Fragment() {
@@ -33,10 +33,11 @@ class RecordFragment  : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    @ExperimentalCoroutinesApi
+    override fun onResume() {
+        super.onResume()
         if (activity != null) {
-            val user = authViewModel.checkUserLoggedIn()?.toDomain()
+            val user = authViewModel.checkUserLogin()
 
             user?.userId?.let { userId ->
                 leaderBoardViewModel.history(userId).observe(viewLifecycleOwner){
@@ -77,6 +78,5 @@ class RecordFragment  : Fragment() {
                 }
             }
         }
-
     }
 }

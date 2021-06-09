@@ -7,7 +7,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.sidiq.sibi.data.wrapper.Result
 import com.sidiq.sibi.databinding.ActivityPracticeResultBinding
-import com.sidiq.sibi.domain.model.AuthUser.Companion.toDomain
 import com.sidiq.sibi.ui.FirebaseAuthViewModel
 import com.sidiq.sibi.ui.maingame.GameViewModel
 import com.sidiq.sibi.utils.SCORE_MULTIPLIER
@@ -35,7 +34,7 @@ class PracticeResultActivity : AppCompatActivity() {
         score = intent.getIntExtra(EXTRA_SCORE, 0)
         score *= SCORE_MULTIPLIER
 
-        val user = authViewModel.checkUserLoggedIn()?.toDomain()!!
+        val user = authViewModel.checkUserLogin()!!
 
         binding.tvAnswered.text = "$score"
         binding.btnBackHome.setOnClickListener { finish() }

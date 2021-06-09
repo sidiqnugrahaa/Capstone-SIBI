@@ -14,7 +14,7 @@ data class History(
     var docId: String = "",
     var timestamp: Timestamp? = null,
     var type: String? = null,
-    var score: Long? = null
+    var score: Long? = 0
 ): Parcelable {
 
     companion object {

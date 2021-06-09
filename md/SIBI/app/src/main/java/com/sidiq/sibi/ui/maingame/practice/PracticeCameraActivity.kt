@@ -131,9 +131,7 @@ class PracticeCameraActivity : AppCompatActivity() {
         return object : CountDownTimer(seconds*1000, 1000) {
             override fun onTick(miliFinished: Long) {
                 remainingTime = miliFinished/1000
-                binding.timer.text = resources.getText(R.string.sisa_waktu,
-                    remainingTime.toString()
-                )
+                binding.timer.text = resources.getString(R.string.sisa_waktu, remainingTime)
             }
 
             override fun onFinish() {

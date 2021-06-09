@@ -11,7 +11,6 @@ import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.sidiq.sibi.R
 import com.sidiq.sibi.databinding.FragmentHomeBinding
-import com.sidiq.sibi.domain.model.AuthUser.Companion.toDomain
 import com.sidiq.sibi.ui.FirebaseAuthViewModel
 import com.sidiq.sibi.ui.maingame.game.GameActivity
 import com.sidiq.sibi.ui.learning.LearningActivity
@@ -54,7 +53,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initProfile(){
-        val profile = authViewModel.checkUserLoggedIn()?.toDomain()
+        val profile = authViewModel.checkUserLogin()
         binding.helloUser.text = resources.getString(
             R.string.hello_user, profile?.name?.split(" ")?.get(0)
         )

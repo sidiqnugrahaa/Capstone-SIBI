@@ -14,18 +14,18 @@ data class AuthUser (
     var userId: String = "",
     var name: String = "",
     var imageUrl: String = "",
-    var score: Long = 0
+    var score: Long? = 0
 ) : Parcelable {
 
     companion object {
         private const val TAG = "user"
 
-        fun FirebaseUser.toDomain(): AuthUser? = try {
+        fun FirebaseUser.toDomain(score: Long? = 0): AuthUser? = try {
             AuthUser(
                 userId = email!!,
                 name = displayName!!,
                 imageUrl = photoUrl.toString(),
-                score = 0)
+                score)
         }catch (e:Exception){
             Log.e(TAG, "Error converting user profile", e)
             FirebaseCrashlytics.getInstance().apply {

@@ -15,7 +15,7 @@ class UserRepository @Inject constructor(
 
     suspend fun createUser(user: AuthUser) = service.createUser(user)
 
-    fun checkUserAuth() = service.checkUserAuth()
+    fun checkUserAuth() : AuthUser? = service.checkUserAuth()
 
     suspend fun signInWithCredential(authCredential: AuthCredential): Result<AuthResult?> =
         service.signInWithCredential(authCredential)

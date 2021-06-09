@@ -29,8 +29,8 @@ class RankFragment  : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         if (activity != null) {
             leaderBoardViewModel.globalRank.observe(viewLifecycleOwner){
                 when(it){
@@ -70,4 +70,5 @@ class RankFragment  : Fragment() {
             }
         }
     }
+
 }

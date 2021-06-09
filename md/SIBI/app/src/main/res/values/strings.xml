@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SIBI</string>
+    <string name="app_name">Fun-BI</string>
     <string name="start_text">Apakah kamu siap belajar bahasa isyarat dengan cara yang menyenangkan?</string>
     <string name="background">Background</string>
     <string name="global_rank">Global Rank</string>
@@ -48,11 +48,12 @@
     <string name="rekor_tertinggimu">Rekor Tertinggimu</string>
     <string name="peringkat_global">Peringkat Global</string>
     <string name="record_saya">Record Saya</string>
-    <string name="_1800">1800</string>
     <string name="judul_record">Judul Record</string>
     <string name="_10">10</string>
     <string name="sisa_waktu">Sisa Waktu: %d</string>
     <string name="waktu_habis">Waktu Habis</string>
     <string name="data_kosong">Data Kosong</string>
     <string name="error_mengambil_data">Error Mengambil Data</string>
+    <string name="_100">100</string>
+    <string name="_0">0</string>
 </resources>

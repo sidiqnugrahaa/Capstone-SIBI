@@ -50,10 +50,11 @@
                     android:contentDescription="@string/content_description" />
 
                 <TextView
+                    android:id="@+id/best_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/_1800"
+                    android:text="@string/_0"
                     android:textSize="24sp"
                     android:textColor="@color/dark_blue"
                     android:textStyle="bold"
@@ -86,6 +87,7 @@
                     android:contentDescription="@string/content_description" />
 
                 <TextView
+                    android:id="@+id/current_rank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/_107"
